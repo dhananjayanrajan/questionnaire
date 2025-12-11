@@ -1,0 +1,3292 @@
+[
+  {
+    "id": "home",
+    "type": "page",
+    "title": "Home Page",
+    "description": "Content for the home page of your website.",
+    "sets": [
+      {
+        "id": "hero",
+        "type": "set",
+        "title": "Hero Section",
+        "description": "Main message and call-to-actions shown at the top of the page.",
+        "exclude": false,
+        "skip": false,
+        "fields": [
+          {
+            "id": "hero_title",
+            "type": "text",
+            "label": "What should the main headline say?",
+            "description": "A clear and direct statement about what you offer.",
+            "helper": "Keep it short and avoid special symbols.",
+            "example": "Professional Music Learning for All",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "rules": {
+              "minLength": 3,
+              "maxLength": 60,
+              "pattern": "^[A-Za-z0-9 ,.'-]{3,60}$",
+              "patternMessage": "Use simple English text with basic punctuation only."
+            }
+          },
+          {
+            "id": "hero_subtitle",
+            "type": "text",
+            "label": "What supporting line should appear under the headline?",
+            "description": "A brief line that adds clarity to your headline.",
+            "helper": "One clean sentence. No marketing buzzwords.",
+            "example": "Structured guidance to help you grow with confidence.",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "rules": {
+              "minLength": 5,
+              "maxLength": 120,
+              "pattern": "^[A-Za-z0-9 ,.'-]{5,120}$",
+              "patternMessage": "Write simple English text only."
+            }
+          },
+          {
+            "id": "hero_taglines",
+            "type": "group",
+            "label": "Add short punchlines you want to highlight",
+            "description": "Optional short points that reinforce your message.",
+            "required": false,
+            "exclude": false,
+            "skip": false,
+            "group": [
+              {
+                "id": "tagline",
+                "type": "text",
+                "label": "Punchline",
+                "example": "Learn from real musicians",
+                "required": false,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 50,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,50}$",
+                  "patternMessage": "Use clean and simple text."
+                }
+              }
+            ]
+          },
+          {
+            "id": "hero_images",
+            "type": "group",
+            "label": "Describe the images you want here",
+            "description": "Explain what each image should show. No file uploads needed.",
+            "required": false,
+            "exclude": false,
+            "skip": false,
+            "group": [
+              {
+                "id": "purpose",
+                "type": "text",
+                "label": "What should this image represent?",
+                "example": "A person learning guitar",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 80,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,80}$"
+                }
+              },
+              {
+                "id": "tagline",
+                "type": "text",
+                "label": "Short phrase describing this image",
+                "example": "Focused practice session",
+                "required": false,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 60,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,60}$"
+                }
+              },
+              {
+                "id": "description",
+                "type": "textarea",
+                "label": "Explain the image in simple detail",
+                "example": "A close-up shot of a learner practicing acoustic guitar in a warm, bright environment.",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 20,
+                  "maxLength": 200,
+                  "pattern": "^[A-Za-z0-9 ,.?'\"-]{20,200}$",
+                  "patternMessage": "Use normal English sentences only."
+                }
+              }
+            ]
+          },
+          {
+            "id": "hero_buttons",
+            "type": "group",
+            "label": "Add buttons for this section",
+            "description": "Buttons visitors can click on.",
+            "required": false,
+            "exclude": false,
+            "skip": false,
+            "group": [
+              {
+                "id": "text",
+                "type": "text",
+                "label": "Button text",
+                "example": "Get Started",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 2,
+                  "maxLength": 20,
+                  "pattern": "^[A-Za-z0-9 ]{2,20}$",
+                  "patternMessage": "Use short and clear wording."
+                }
+              },
+              {
+                "id": "path",
+                "type": "text",
+                "label": "Where should this button lead?",
+                "description": "Describe the destination in simple words.",
+                "helper": "Examples: 'contact page', 'pricing section', 'courses page'.",
+                "example": "courses page",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 50,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,50}$",
+                  "patternMessage": "Use descriptive text without symbols."
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "introduction",
+        "type": "set",
+        "title": "Introduction Section",
+        "description": "A brief section that introduces your brand to visitors.",
+        "exclude": false,
+        "skip": false,
+        "fields": [
+          {
+            "id": "intro_title",
+            "type": "text",
+            "label": "What is the main title for this section?",
+            "description": "A clear and simple title that introduces your brand or message.",
+            "helper": "Avoid long statements.",
+            "example": "Welcome to Our Platform",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "rules": {
+              "minLength": 3,
+              "maxLength": 50,
+              "pattern": "^[A-Za-z0-9 ,.'-]{3,50}$",
+              "patternMessage": "Use simple English text only."
+            }
+          },
+          {
+            "id": "intro_subtitle",
+            "type": "text",
+            "label": "Do you want a short supporting line below the title?",
+            "description": "A brief line that adds clarity to the title.",
+            "helper": "Keep it short and meaningful.",
+            "example": "Helping learners grow with structured guidance.",
+            "required": false,
+            "exclude": false,
+            "skip": false,
+            "rules": {
+              "minLength": 5,
+              "maxLength": 80,
+              "pattern": "^[A-Za-z0-9 ,.'-]{5,80}$",
+              "patternMessage": "Use clean English text."
+            }
+          },
+          {
+            "id": "intro_description",
+            "type": "textarea",
+            "label": "How would you describe your brand in 1–2 short paragraphs?",
+            "description": "A clear explanation of what you do and why it matters.",
+            "helper": "Use simple English. End sentences with proper punctuation.",
+            "example": "We help learners build real musical skills through structured training. Our approach focuses on consistency, clarity, and real-world growth.",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "rules": {
+              "minLength": 80,
+              "maxLength": 600,
+              "pattern": "^[A-Za-z0-9 ,.?'\"-]{80,600}$",
+              "patternMessage": "Write a proper paragraph using normal English punctuation."
+            }
+          },
+          {
+            "id": "intro_highlights",
+            "type": "group",
+            "label": "List any short highlight points you want to show",
+            "description": "Short points that quickly explain what makes you valuable.",
+            "required": false,
+            "exclude": false,
+            "skip": false,
+            "group": [
+              {
+                "id": "highlight",
+                "type": "text",
+                "label": "Highlight point",
+                "example": "Clear learning path",
+                "required": false,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 50,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,50}$",
+                  "patternMessage": "Use clear and short text."
+                }
+              }
+            ]
+          },
+          {
+            "id": "intro_images",
+            "type": "group",
+            "label": "Describe the images for this section",
+            "description": "Explain what each image should show. No actual files needed.",
+            "required": false,
+            "exclude": false,
+            "skip": false,
+            "group": [
+              {
+                "id": "purpose",
+                "type": "text",
+                "label": "What should this image represent?",
+                "example": "Introducing the brand story",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 80,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,80}$"
+                }
+              },
+              {
+                "id": "tagline",
+                "type": "text",
+                "label": "Short phrase describing this image",
+                "example": "Our mission at a glance",
+                "required": false,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 60,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,60}$"
+                }
+              },
+              {
+                "id": "description",
+                "type": "textarea",
+                "label": "Explain the image clearly",
+                "example": "An image that reflects our values, such as a team working together or a learner practicing.",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 20,
+                  "maxLength": 200,
+                  "pattern": "^[A-Za-z0-9 ,.?'\"-]{20,200}$",
+                  "patternMessage": "Describe the image using simple English."
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "what_we_do",
+        "type": "set",
+        "title": "What We Do Section",
+        "description": "Explain what your brand offers in a simple and clear way.",
+        "exclude": false,
+        "skip": false,
+        "fields": [
+          {
+            "id": "whatwedo_title",
+            "type": "text",
+            "label": "What is the main title for this section?",
+            "description": "A simple title that tells visitors what this section is about.",
+            "helper": "Keep it direct and short.",
+            "example": "What We Do",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "rules": {
+              "minLength": 3,
+              "maxLength": 40,
+              "pattern": "^[A-Za-z0-9 ,.'-]{3,40}$",
+              "patternMessage": "Use simple English text only."
+            }
+          },
+          {
+            "id": "whatwedo_description",
+            "type": "textarea",
+            "label": "How would you describe your main offerings?",
+            "description": "A brief explanation of what you provide.",
+            "helper": "Write clear sentences. Avoid technical jargon.",
+            "example": "We provide structured learning programs designed to help you build real musical skills at your own pace.",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "rules": {
+              "minLength": 50,
+              "maxLength": 400,
+              "pattern": "^[A-Za-z0-9 ,.?'\"-]{50,400}$",
+              "patternMessage": "Write normal English sentences only."
+            }
+          },
+          {
+            "id": "whatwedo_items",
+            "type": "group",
+            "label": "List the key things you offer",
+            "description": "Add each main offering as a separate item.",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "group": [
+              {
+                "id": "title",
+                "type": "text",
+                "label": "What is this offering called?",
+                "example": "Personalized Learning Plans",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 50,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,50}$"
+                }
+              },
+              {
+                "id": "subtitle",
+                "type": "text",
+                "label": "Do you want to add a short supporting line for this offering?",
+                "example": "Tailored to your skill level",
+                "required": false,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 60,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,60}$"
+                }
+              },
+              {
+                "id": "description",
+                "type": "textarea",
+                "label": "How would you explain this offering?",
+                "example": "We design a custom learning path based on your goals, strengths, and areas of improvement.",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 40,
+                  "maxLength": 300,
+                  "pattern": "^[A-Za-z0-9 ,.?'\"-]{40,300}$"
+                }
+              },
+              {
+                "id": "icon",
+                "type": "text",
+                "label": "If this offering needs an icon, describe what the icon should represent.",
+                "example": "A simple guitar outline",
+                "required": false,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 50,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,50}$"
+                }
+              },
+              {
+                "id": "image",
+                "type": "text",
+                "label": "Describe the type of image that fits this offering.",
+                "example": "A student practicing guitar with a mentor",
+                "required": false,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 5,
+                  "maxLength": 80,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{5,80}$"
+                }
+              },
+              {
+                "id": "path",
+                "type": "text",
+                "label": "Where should users go if they click on this offering?",
+                "description": "Describe the destination in simple words.",
+                "helper": "Examples: 'detailed services page', 'courses page', 'about our programs section'.",
+                "example": "services page",
+                "required": false,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 50,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,50}$",
+                  "patternMessage": "Use simple descriptive text only."
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "how_we_work",
+        "type": "set",
+        "title": "How We Work Section",
+        "description": "Explain how your process or approach works in simple steps.",
+        "exclude": false,
+        "skip": false,
+        "fields": [
+          {
+            "id": "how_title",
+            "type": "text",
+            "label": "What is the main title for this section?",
+            "description": "A direct title explaining this section’s purpose.",
+            "helper": "Keep it short and clear.",
+            "example": "How We Work",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "rules": {
+              "minLength": 3,
+              "maxLength": 40,
+              "pattern": "^[A-Za-z0-9 ,.'-]{3,40}$"
+            }
+          },
+          {
+            "id": "how_subtitle",
+            "type": "text",
+            "label": "Do you want a short line to introduce your process?",
+            "description": "A simple sentence that prepares visitors for the steps.",
+            "helper": "Avoid technical or complex wording.",
+            "example": "A simple process designed to help you improve steadily.",
+            "required": false,
+            "exclude": false,
+            "skip": false,
+            "rules": {
+              "minLength": 5,
+              "maxLength": 80,
+              "pattern": "^[A-Za-z0-9 ,.'-]{5,80}$"
+            }
+          },
+          {
+            "id": "how_description",
+            "type": "textarea",
+            "label": "How would you briefly describe your overall approach?",
+            "description": "A short explanation of how your process helps users.",
+            "helper": "Use normal English sentences.",
+            "example": "We follow a simple step-by-step model that guides you from the basics to advanced skills while keeping you consistent and motivated.",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "rules": {
+              "minLength": 50,
+              "maxLength": 400,
+              "pattern": "^[A-Za-z0-9 ,.?'\"-]{50,400}$"
+            }
+          },
+          {
+            "id": "how_items",
+            "type": "group",
+            "label": "List the main steps of your process",
+            "description": "Describe each step clearly so visitors understand how you work.",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "group": [
+              {
+                "id": "title",
+                "type": "text",
+                "label": "Step title",
+                "example": "Understand Your Goals",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 50,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,50}$"
+                }
+              },
+              {
+                "id": "subtitle",
+                "type": "text",
+                "label": "Short supporting line for this step",
+                "example": "We learn what you want to achieve",
+                "required": false,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 60,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,60}$"
+                }
+              },
+              {
+                "id": "description",
+                "type": "textarea",
+                "label": "Explain this step in simple words",
+                "example": "We start by understanding your goals and current skill level so that we can build a clear path for your progress.",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 40,
+                  "maxLength": 300,
+                  "pattern": "^[A-Za-z0-9 ,.?'\"-]{40,300}$"
+                }
+              },
+              {
+                "id": "icon",
+                "type": "text",
+                "label": "Describe the type of icon that fits this step",
+                "example": "A checklist icon",
+                "required": false,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 50,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,50}$"
+                }
+              },
+              {
+                "id": "image",
+                "type": "text",
+                "label": "Describe an image that represents this step",
+                "example": "A student discussing goals with a mentor",
+                "required": false,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 5,
+                  "maxLength": 80,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{5,80}$"
+                }
+              },
+              {
+                "id": "path",
+                "type": "text",
+                "label": "Where should users go if they click on this step?",
+                "description": "Describe the destination in simple words.",
+                "helper": "Example: 'detailed process page', 'mentorship section', 'training programs page'.",
+                "example": "process page",
+                "required": false,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 50,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,50}$"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "what_we_provide",
+        "type": "set",
+        "title": "What We Provide Section",
+        "description": "Explain the key things you offer to your users.",
+        "exclude": false,
+        "skip": false,
+        "fields": [
+          {
+            "id": "provide_title",
+            "type": "text",
+            "label": "What is the main title for this section?",
+            "description": "A short title that clearly states what you provide.",
+            "helper": "Keep it simple and direct.",
+            "example": "What We Provide",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "rules": {
+              "minLength": 3,
+              "maxLength": 40,
+              "pattern": "^[A-Za-z0-9 ,.'-]{3,40}$"
+            }
+          },
+          {
+            "id": "provide_description",
+            "type": "textarea",
+            "label": "How would you describe the overall value you provide?",
+            "description": "A short explanation of what users receive from you.",
+            "helper": "Focus on benefits. Use simple English.",
+            "example": "We offer structured learning, expert guidance, and a clear path that helps you grow with confidence.",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "rules": {
+              "minLength": 60,
+              "maxLength": 400,
+              "pattern": "^[A-Za-z0-9 ,.?'\"-]{60,400}$"
+            }
+          },
+          {
+            "id": "provide_items",
+            "type": "group",
+            "label": "List what you provide",
+            "description": "Add each item that represents something you provide to your users.",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "group": [
+              {
+                "id": "title",
+                "type": "text",
+                "label": "What is this item called?",
+                "example": "Expert Guidance",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 50,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,50}$"
+                }
+              },
+              {
+                "id": "subtitle",
+                "type": "text",
+                "label": "Short supporting line for this item",
+                "example": "Learn from experienced mentors",
+                "required": false,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 60,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,60}$"
+                }
+              },
+              {
+                "id": "description",
+                "type": "textarea",
+                "label": "How would you explain this item?",
+                "example": "Our mentors guide you through every step of your learning journey, helping you improve steadily.",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 40,
+                  "maxLength": 300,
+                  "pattern": "^[A-Za-z0-9 ,.?'\"-]{40,300}$"
+                }
+              },
+              {
+                "id": "icon",
+                "type": "text",
+                "label": "Describe the type of icon that suits this item",
+                "example": "A star icon or a guidance symbol",
+                "required": false,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 50,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,50}$"
+                }
+              },
+              {
+                "id": "image",
+                "type": "text",
+                "label": "Describe an image that suits this item",
+                "example": "A mentor teaching a student in a calm environment",
+                "required": false,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 5,
+                  "maxLength": 80,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{5,80}$"
+                }
+              },
+              {
+                "id": "path",
+                "type": "text",
+                "label": "Where should users go if they want to know more?",
+                "description": "Explain the destination in simple words.",
+                "helper": "Examples: 'mentorship page', 'learning programs page'.",
+                "example": "mentorship page",
+                "required": false,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 50,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,50}$"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "featured_media",
+        "type": "set",
+        "title": "Featured Media Section",
+        "description": "Showcase important images, videos, or audio that represent your brand.",
+        "exclude": false,
+        "skip": false,
+        "fields": [
+          {
+            "id": "media_title",
+            "type": "text",
+            "label": "What is the main title for this section?",
+            "description": "A short title that explains the purpose of the media shown here.",
+            "helper": "Keep it simple and clear.",
+            "example": "Featured Media",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "rules": {
+              "minLength": 3,
+              "maxLength": 40,
+              "pattern": "^[A-Za-z0-9 ,.'-]{3,40}$"
+            }
+          },
+          {
+            "id": "media_description",
+            "type": "textarea",
+            "label": "How would you describe the purpose of this section?",
+            "description": "Explain why this media is important for visitors to see.",
+            "helper": "Use short, meaningful sentences.",
+            "example": "A collection of media that highlights our learning approach, student progress, and brand vision.",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "rules": {
+              "minLength": 50,
+              "maxLength": 300,
+              "pattern": "^[A-Za-z0-9 ,.?'\"-]{50,300}$"
+            }
+          },
+          {
+            "id": "media_images",
+            "type": "group",
+            "label": "Describe the images you want to feature",
+            "description": "Explain each image clearly so our team understands what to create or select.",
+            "required": false,
+            "exclude": false,
+            "skip": false,
+            "group": [
+              {
+                "id": "purpose",
+                "type": "text",
+                "label": "What should this image show?",
+                "example": "A student practicing piano with focus",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 80,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,80}$"
+                }
+              },
+              {
+                "id": "tagline",
+                "type": "text",
+                "label": "Short phrase describing this image",
+                "example": "Dedicated practice moments",
+                "required": false,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 60,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,60}$"
+                }
+              },
+              {
+                "id": "description",
+                "type": "textarea",
+                "label": "Describe the image in detail",
+                "example": "A well-lit room with a learner playing piano, showing focus and concentration.",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 20,
+                  "maxLength": 200,
+                  "pattern": "^[A-Za-z0-9 ,.?'\"-]{20,200}$"
+                }
+              }
+            ]
+          },
+          {
+            "id": "media_videos",
+            "type": "group",
+            "label": "Describe the videos you want to feature",
+            "description": "Explain the purpose of each video. No links needed.",
+            "required": false,
+            "exclude": false,
+            "skip": false,
+            "group": [
+              {
+                "id": "purpose",
+                "type": "text",
+                "label": "What should this video highlight?",
+                "example": "A walkthrough of our learning platform",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 80,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,80}$"
+                }
+              },
+              {
+                "id": "tagline",
+                "type": "text",
+                "label": "Short phrase describing this video",
+                "example": "See how the platform works",
+                "required": false,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 60,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,60}$"
+                }
+              },
+              {
+                "id": "description",
+                "type": "textarea",
+                "label": "Describe the video clearly",
+                "example": "A short demonstration video showing how learners navigate lessons and track progress.",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 20,
+                  "maxLength": 200,
+                  "pattern": "^[A-Za-z0-9 ,.?'\"-]{20,200}$"
+                }
+              }
+            ]
+          },
+          {
+            "id": "media_audios",
+            "type": "group",
+            "label": "Describe the audio clips you want to feature",
+            "description": "Explain what each audio clip should contain.",
+            "required": false,
+            "exclude": false,
+            "skip": false,
+            "group": [
+              {
+                "id": "purpose",
+                "type": "text",
+                "label": "What should this audio represent?",
+                "example": "A sample of a student's progress",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 80,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,80}$"
+                }
+              },
+              {
+                "id": "tagline",
+                "type": "text",
+                "label": "Short phrase describing this audio",
+                "example": "Progress after 6 weeks",
+                "required": false,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 60,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,60}$"
+                }
+              },
+              {
+                "id": "description",
+                "type": "textarea",
+                "label": "Describe the audio clip",
+                "example": "A clean guitar recording showing improvement in accuracy and rhythm.",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 20,
+                  "maxLength": 200,
+                  "pattern": "^[A-Za-z0-9 ,.?'\"-]{20,200}$"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "reviews_preview",
+        "type": "set",
+        "title": "Reviews Preview Section",
+        "description": "Show a short preview of customer reviews or ratings to build trust.",
+        "exclude": false,
+        "skip": false,
+        "fields": [
+          {
+            "id": "reviews_title",
+            "type": "text",
+            "label": "What title should appear above the reviews?",
+            "description": "A short title introducing your customer feedback.",
+            "helper": "Keep it simple and trust-focused.",
+            "example": "What Our Students Say",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "rules": {
+              "minLength": 3,
+              "maxLength": 40,
+              "pattern": "^[A-Za-z0-9 ,.'-]{3,40}$"
+            }
+          },
+          {
+            "id": "reviews_description",
+            "type": "textarea",
+            "label": "How would you describe this review section to visitors?",
+            "description": "Explain why these reviews matter.",
+            "helper": "Use short, meaningful sentences.",
+            "example": "Real feedback from learners who experienced steady progress through our training.",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "rules": {
+              "minLength": 50,
+              "maxLength": 300,
+              "pattern": "^[A-Za-z0-9 ,.?'\"-]{50,300}$"
+            }
+          },
+          {
+            "id": "reviews_rating_value",
+            "type": "number",
+            "label": "What is your overall rating score?",
+            "description": "Your average rating out of 5.",
+            "helper": "Enter whole numbers only. Decimals are not allowed.",
+            "example": 5,
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "min": 1,
+            "max": 5,
+            "rules": {
+              "min": 1,
+              "max": 5,
+              "pattern": "^[1-5]{1}$"
+            }
+          },
+          {
+            "id": "reviews_count",
+            "type": "number",
+            "label": "How many total reviews do you have?",
+            "description": "Total number of customer reviews collected.",
+            "helper": "Whole numbers only. No decimals.",
+            "example": 245,
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "min": 1,
+            "max": 100000,
+            "rules": {
+              "min": 1,
+              "max": 100000,
+              "pattern": "^[0-9]{1,5}$"
+            }
+          },
+          {
+            "id": "reviews_platforms",
+            "type": "group",
+            "label": "List the platforms where your reviews exist",
+            "description": "Name the platforms where customers have posted feedback.",
+            "required": false,
+            "exclude": false,
+            "skip": false,
+            "group": [
+              {
+                "id": "platform_name",
+                "type": "text",
+                "label": "What is the name of the review platform?",
+                "example": "Google Reviews",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 40,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,40}$"
+                }
+              },
+              {
+                "id": "platform_description",
+                "type": "textarea",
+                "label": "How would you describe this platform to visitors?",
+                "example": "Google's public review page where students often share detailed feedback.",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 20,
+                  "maxLength": 200,
+                  "pattern": "^[A-Za-z0-9 ,.?'\"-]{20,200}$"
+                }
+              }
+            ]
+          },
+          {
+            "id": "review_items",
+            "type": "group",
+            "label": "Add individual review previews",
+            "description": "Provide short excerpts from real customer reviews.",
+            "required": false,
+            "exclude": false,
+            "skip": false,
+            "group": [
+              {
+                "id": "reviewer_name",
+                "type": "text",
+                "label": "What is the reviewer's first name?",
+                "example": "Amit",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 2,
+                  "maxLength": 30,
+                  "pattern": "^[A-Za-z ,.'-]{2,30}$"
+                }
+              },
+              {
+                "id": "review_text",
+                "type": "textarea",
+                "label": "What did the reviewer say?",
+                "example": "The learning experience was excellent, and the progress tracking helped me stay motivated.",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 40,
+                  "maxLength": 250,
+                  "pattern": "^[A-Za-z0-9 ,.?'\"-]{40,250}$"
+                }
+              },
+              {
+                "id": "review_highlight",
+                "type": "text",
+                "label": "What is the main highlight of this review?",
+                "example": "Great learning experience",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 60,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,60}$"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "testimonials",
+        "type": "set",
+        "title": "Testimonials Section",
+        "description": "Show real feedback from your clients or users.",
+        "exclude": false,
+        "skip": false,
+        "fields": [
+          {
+            "id": "testimonials_title",
+            "type": "text",
+            "label": "What is the main title for this section?",
+            "description": "A short title introducing the customer testimonials.",
+            "helper": "Keep it trust-focused and clear.",
+            "example": "Trusted by Our Students",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "rules": {
+              "minLength": 3,
+              "maxLength": 40,
+              "pattern": "^[A-Za-z0-9 ,.'-]{3,40}$"
+            }
+          },
+          {
+            "id": "testimonials_description",
+            "type": "textarea",
+            "label": "How would you describe this testimonials section?",
+            "description": "A brief explanation about why these testimonials matter.",
+            "helper": "Use short sentences that build confidence.",
+            "example": "Here are some honest experiences shared by customers who have worked with us.",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "rules": {
+              "minLength": 50,
+              "maxLength": 300,
+              "pattern": "^[A-Za-z0-9 ,.?'\"-]{50,300}$"
+            }
+          },
+          {
+            "id": "testimonial_items",
+            "type": "group",
+            "label": "Add individual testimonials",
+            "description": "Provide clear details for each testimonial.",
+            "required": false,
+            "exclude": false,
+            "skip": false,
+            "group": [
+              {
+                "id": "name",
+                "type": "text",
+                "label": "What is the reviewer's first name?",
+                "example": "Rohan",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 2,
+                  "maxLength": 30,
+                  "pattern": "^[A-Za-z ,.'-]{2,30}$"
+                }
+              },
+              {
+                "id": "role",
+                "type": "text",
+                "label": "What is their role or relationship to your service?",
+                "example": "Student",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 2,
+                  "maxLength": 40,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{2,40}$"
+                }
+              },
+              {
+                "id": "testimonial_text",
+                "type": "textarea",
+                "label": "What did this person say about your service?",
+                "example": "The learning approach was very structured and helped me improve consistently.",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 60,
+                  "maxLength": 300,
+                  "pattern": "^[A-Za-z0-9 ,.?'\"-]{60,300}$"
+                }
+              },
+              {
+                "id": "highlight",
+                "type": "text",
+                "label": "What is the main takeaway from their feedback?",
+                "example": "Clear and structured learning",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 60,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,60}$"
+                }
+              },
+              {
+                "id": "image_description",
+                "type": "textarea",
+                "label": "Describe the type of image that should represent this reviewer",
+                "description": "A short description of how the reviewer should visually appear.",
+                "helper": "Do not provide an image. Only describe the look.",
+                "example": "A young professional smiling confidently in a clean indoor setting.",
+                "required": false,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 20,
+                  "maxLength": 200,
+                  "pattern": "^[A-Za-z0-9 ,.?'\"-]{20,200}$"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "cta_banner",
+        "type": "set",
+        "title": "Call-To-Action Banner",
+        "description": "A strong invitation for visitors to take the next step.",
+        "exclude": false,
+        "skip": false,
+        "fields": [
+          {
+            "id": "cta_banner_title",
+            "type": "text",
+            "label": "What is the main title of this banner?",
+            "description": "A short and clear title that motivates the visitor to act.",
+            "helper": "Keep it direct and purposeful.",
+            "example": "Start Your Journey Today",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "rules": {
+              "minLength": 3,
+              "maxLength": 40,
+              "pattern": "^[A-Za-z0-9 ,.'-]{3,40}$"
+            }
+          },
+          {
+            "id": "cta_banner_description",
+            "type": "textarea",
+            "label": "What message should appear below the title?",
+            "description": "Explain the benefit of taking action in simple, meaningful words.",
+            "helper": "Use short sentences that encourage action.",
+            "example": "If you are ready to begin, our team will help you take the next step with confidence.",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "rules": {
+              "minLength": 50,
+              "maxLength": 300,
+              "pattern": "^[A-Za-z0-9 ,.?'\"-]{50,300}$"
+            }
+          },
+          {
+            "id": "cta_banner_buttons",
+            "type": "group",
+            "label": "Add action buttons for this banner",
+            "description": "Buttons help visitors reach the next step easily.",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "group": [
+              {
+                "id": "text",
+                "type": "text",
+                "label": "What should the button say?",
+                "example": "Get Started",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 2,
+                  "maxLength": 30,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{2,30}$"
+                }
+              },
+              {
+                "id": "path",
+                "type": "text",
+                "label": "Where should this button take the visitor?",
+                "description": "Describe the page or section this button should lead to. No URLs required.",
+                "helper": "Use simple names like 'contact page', 'book a call', or 'services page'.",
+                "example": "Contact Page",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 50,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,50}$"
+                }
+              }
+            ]
+          },
+          {
+            "id": "cta_banner_icons",
+            "type": "group",
+            "label": "List any icons you want to display in the banner",
+            "description": "Short words describing the style or idea of the icon.",
+            "required": false,
+            "exclude": false,
+            "skip": false,
+            "group": [
+              {
+                "id": "icon",
+                "type": "text",
+                "label": "What icon should appear here?",
+                "example": "Arrow icon",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 40,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,40}$"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "about",
+    "type": "page",
+    "title": "About Page",
+    "description": "Content for the About page of your website.",
+    "sets": [
+      {
+        "id": "about_hero",
+        "type": "set",
+        "title": "Hero Section",
+        "description": "The first section visitors see on the About page.",
+        "exclude": false,
+        "skip": false,
+        "fields": [
+          {
+            "id": "about_hero_title",
+            "type": "text",
+            "label": "What is the main title for this section?",
+            "description": "A short and clear headline that introduces your identity.",
+            "helper": "Keep it simple and meaningful.",
+            "example": "Who We Are",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "rules": {
+              "minLength": 3,
+              "maxLength": 40,
+              "pattern": "^[A-Za-z0-9 ,.'-]{3,40}$"
+            }
+          },
+          {
+            "id": "about_hero_description",
+            "type": "textarea",
+            "label": "How would you introduce your organisation to visitors?",
+            "description": "A short introduction explaining who you are.",
+            "helper": "Use clear and direct sentences.",
+            "example": "We are a dedicated team focused on delivering high-quality learning experiences with honesty and commitment.",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "rules": {
+              "minLength": 50,
+              "maxLength": 300,
+              "pattern": "^[A-Za-z0-9 ,.?'\"-]{50,300}$"
+            }
+          },
+          {
+            "id": "about_hero_taglines",
+            "type": "group",
+            "label": "Add short taglines for this section",
+            "description": "These are brief phrases supporting your main message.",
+            "required": false,
+            "exclude": false,
+            "skip": false,
+            "group": [
+              {
+                "id": "tagline",
+                "type": "text",
+                "label": "What short phrase would you like to display?",
+                "example": "Driven by purpose",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 2,
+                  "maxLength": 60,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{2,60}$"
+                }
+              }
+            ]
+          },
+          {
+            "id": "about_hero_images",
+            "type": "group",
+            "label": "Describe the images you want for this section",
+            "description": "Explain the type of images that should appear here.",
+            "required": false,
+            "exclude": false,
+            "skip": false,
+            "group": [
+              {
+                "id": "purpose",
+                "type": "text",
+                "label": "What should this image show?",
+                "example": "Our team working together in a clean workspace",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 80,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,80}$"
+                }
+              },
+              {
+                "id": "tagline",
+                "type": "text",
+                "label": "Short phrase describing this image",
+                "example": "Teamwork in action",
+                "required": false,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 60,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,60}$"
+                }
+              },
+              {
+                "id": "description",
+                "type": "textarea",
+                "label": "Describe the image in detail",
+                "example": "A bright room with team members collaborating around a table, expressing focus and positivity.",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 20,
+                  "maxLength": 200,
+                  "pattern": "^[A-Za-z0-9 ,.?'\"-]{20,200}$"
+                }
+              }
+            ]
+          },
+          {
+            "id": "about_hero_buttons",
+            "type": "group",
+            "label": "Add buttons for this section",
+            "description": "Buttons guide visitors to important next steps.",
+            "required": false,
+            "exclude": false,
+            "skip": false,
+            "group": [
+              {
+                "id": "text",
+                "type": "text",
+                "label": "What should the button say?",
+                "example": "Learn More",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 2,
+                  "maxLength": 30,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{2,30}$"
+                }
+              },
+              {
+                "id": "path",
+                "type": "text",
+                "label": "Where should this button take the visitor?",
+                "description": "Describe the page or section destination. No URLs required.",
+                "helper": "Examples: 'story section', 'team page', 'mission page'.",
+                "example": "Story Section",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 50,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,50}$"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "about_story",
+        "type": "set",
+        "title": "Story Section",
+        "description": "Share the background and journey of your organisation.",
+        "exclude": false,
+        "skip": false,
+        "fields": [
+          {
+            "id": "about_story_title",
+            "type": "text",
+            "label": "What title should introduce your story?",
+            "description": "A short and clear title for your background story.",
+            "helper": "Use simple and direct wording.",
+            "example": "Our Journey",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "rules": {
+              "minLength": 3,
+              "maxLength": 40,
+              "pattern": "^[A-Za-z0-9 ,.'-]{3,40}$"
+            }
+          },
+          {
+            "id": "about_story_description",
+            "type": "textarea",
+            "label": "How would you describe your overall story?",
+            "description": "A clear summary of how your organisation began and what shaped it.",
+            "helper": "Write in simple, meaningful sentences.",
+            "example": "We began with a small team and a clear purpose: to build reliable and meaningful learning experiences. Over time, our values, discipline, and commitment helped us grow steadily.",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "rules": {
+              "minLength": 120,
+              "maxLength": 600,
+              "pattern": "^[A-Za-z0-9 ,.?'\"-]{120,600}$"
+            }
+          },
+          {
+            "id": "about_story_highlights",
+            "type": "group",
+            "label": "Add important milestones or turning points",
+            "description": "Short statements that highlight key moments in your journey.",
+            "required": false,
+            "exclude": false,
+            "skip": false,
+            "group": [
+              {
+                "id": "highlight",
+                "type": "text",
+                "label": "What key milestone should be shown?",
+                "example": "Launched our first structured training program",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 5,
+                  "maxLength": 80,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{5,80}$"
+                }
+              }
+            ]
+          },
+          {
+            "id": "about_story_images",
+            "type": "group",
+            "label": "Describe images that represent your story",
+            "description": "Explain the type of images that should reflect your journey.",
+            "required": false,
+            "exclude": false,
+            "skip": false,
+            "group": [
+              {
+                "id": "purpose",
+                "type": "text",
+                "label": "What should this image show?",
+                "example": "Our early workspace where everything started",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 80,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,80}$"
+                }
+              },
+              {
+                "id": "tagline",
+                "type": "text",
+                "label": "Short phrase describing this image",
+                "example": "Where it all began",
+                "required": false,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 60,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,60}$"
+                }
+              },
+              {
+                "id": "description",
+                "type": "textarea",
+                "label": "Describe the image clearly",
+                "example": "A modest but organised room with basic equipment, showing the simplicity and determination of our early days.",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 20,
+                  "maxLength": 200,
+                  "pattern": "^[A-Za-z0-9 ,.?'\"-]{20,200}$"
+                }
+              }
+            ]
+          },
+          {
+            "id": "about_story_videos",
+            "type": "group",
+            "label": "Describe videos that support your story",
+            "description": "Explain what each video should convey.",
+            "required": false,
+            "exclude": false,
+            "skip": false,
+            "group": [
+              {
+                "id": "purpose",
+                "type": "text",
+                "label": "What should this video highlight?",
+                "example": "A short clip showing how our work evolved over time",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 80,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,80}$"
+                }
+              },
+              {
+                "id": "tagline",
+                "type": "text",
+                "label": "Short phrase describing this video",
+                "example": "Progress over the years",
+                "required": false,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 60,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,60}$"
+                }
+              },
+              {
+                "id": "description",
+                "type": "textarea",
+                "label": "Describe the video clearly",
+                "example": "A simple narrative-style video showing our early days, important decisions, and how our core values shaped every step forward.",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 20,
+                  "maxLength": 200,
+                  "pattern": "^[A-Za-z0-9 ,.?'\"-]{20,200}$"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "about_vision",
+        "type": "set",
+        "title": "Vision Section",
+        "description": "Explain the long-term direction and aspirations of your organisation.",
+        "exclude": false,
+        "skip": false,
+        "fields": [
+          {
+            "id": "about_vision_title",
+            "type": "text",
+            "label": "What title should introduce your vision?",
+            "description": "A short and clear heading for your vision statement.",
+            "helper": "Keep it direct and confident.",
+            "example": "Our Vision",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "rules": {
+              "minLength": 3,
+              "maxLength": 40,
+              "pattern": "^[A-Za-z0-9 ,.'-]{3,40}$"
+            }
+          },
+          {
+            "id": "about_vision_description",
+            "type": "textarea",
+            "label": "How would you describe your long-term vision?",
+            "description": "Explain what you aim to achieve in the future.",
+            "helper": "Use clear sentences that show direction and purpose.",
+            "example": "We aim to create a learning environment where every individual gains access to structured, meaningful, and reliable growth opportunities.",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "rules": {
+              "minLength": 120,
+              "maxLength": 600,
+              "pattern": "^[A-Za-z0-9 ,.?'\"-]{120,600}$"
+            }
+          },
+          {
+            "id": "about_vision_highlights",
+            "type": "group",
+            "label": "List important points that support your vision",
+            "description": "Short statements explaining the core ideas behind your vision.",
+            "required": false,
+            "exclude": false,
+            "skip": false,
+            "group": [
+              {
+                "id": "point",
+                "type": "text",
+                "label": "What key point supports your vision?",
+                "example": "Making structured learning accessible to all",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 5,
+                  "maxLength": 80,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{5,80}$"
+                }
+              }
+            ]
+          },
+          {
+            "id": "about_vision_images",
+            "type": "group",
+            "label": "Describe images that represent your vision",
+            "description": "Explain the type of images that visually express your long-term goal.",
+            "required": false,
+            "exclude": false,
+            "skip": false,
+            "group": [
+              {
+                "id": "purpose",
+                "type": "text",
+                "label": "What should this image show?",
+                "example": "Students learning confidently with supportive guidance",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 80,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,80}$"
+                }
+              },
+              {
+                "id": "tagline",
+                "type": "text",
+                "label": "Short phrase describing this image",
+                "example": "Future-focused learning",
+                "required": false,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 60,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,60}$"
+                }
+              },
+              {
+                "id": "description",
+                "type": "textarea",
+                "label": "Describe the image clearly",
+                "example": "A bright and modern learning environment where individuals feel confident and motivated to grow.",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 20,
+                  "maxLength": 200,
+                  "pattern": "^[A-Za-z0-9 ,.?'\"-]{20,200}$"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "about_mission",
+        "type": "set",
+        "title": "Mission Section",
+        "description": "Explain the core purpose and daily commitment of your organisation.",
+        "exclude": false,
+        "skip": false,
+        "fields": [
+          {
+            "id": "about_mission_title",
+            "type": "text",
+            "label": "What title should introduce your mission?",
+            "description": "A short heading explaining your organisation’s purpose.",
+            "helper": "Keep it direct and meaningful.",
+            "example": "Our Mission",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "rules": {
+              "minLength": 3,
+              "maxLength": 40,
+              "pattern": "^[A-Za-z0-9 ,.'-]{3,40}$"
+            }
+          },
+          {
+            "id": "about_mission_description",
+            "type": "textarea",
+            "label": "How would you describe your mission?",
+            "description": "A clear explanation of what you aim to do every day.",
+            "helper": "Use simple sentences that clearly explain your purpose.",
+            "example": "Our mission is to deliver dependable learning experiences that help individuals grow steadily through structure, clarity, and guided progression.",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "rules": {
+              "minLength": 120,
+              "maxLength": 600,
+              "pattern": "^[A-Za-z0-9 ,.?'\"-]{120,600}$"
+            }
+          },
+          {
+            "id": "about_mission_points",
+            "type": "group",
+            "label": "List key points that define your mission",
+            "description": "Short statements describing the actions or commitments that make up your mission.",
+            "required": false,
+            "exclude": false,
+            "skip": false,
+            "group": [
+              {
+                "id": "point",
+                "type": "text",
+                "label": "What is one important mission point?",
+                "example": "Delivering structured and reliable learning systems",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 5,
+                  "maxLength": 80,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{5,80}$"
+                }
+              }
+            ]
+          },
+          {
+            "id": "about_mission_images",
+            "type": "group",
+            "label": "Describe images that represent your mission",
+            "description": "Explain the type of images that show your organisation’s objectives in action.",
+            "required": false,
+            "exclude": false,
+            "skip": false,
+            "group": [
+              {
+                "id": "purpose",
+                "type": "text",
+                "label": "What should this image show?",
+                "example": "An instructor guiding a learner with personal attention",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 80,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,80}$"
+                }
+              },
+              {
+                "id": "tagline",
+                "type": "text",
+                "label": "Short phrase describing this image",
+                "example": "Guidance with purpose",
+                "required": false,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 60,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,60}$"
+                }
+              },
+              {
+                "id": "description",
+                "type": "textarea",
+                "label": "Describe the image clearly",
+                "example": "A clean training setup where a dedicated instructor helps a student understand concepts methodically.",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 20,
+                  "maxLength": 200,
+                  "pattern": "^[A-Za-z0-9 ,.?'\"-]{20,200}$"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "about_values",
+        "type": "set",
+        "title": "Values Section",
+        "description": "Present the core principles your organisation follows every day.",
+        "exclude": false,
+        "skip": false,
+        "fields": [
+          {
+            "id": "about_values_title",
+            "type": "text",
+            "label": "What title should introduce your values?",
+            "description": "A short and clear heading explaining your principles.",
+            "helper": "Keep it simple and meaningful.",
+            "example": "Our Values",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "rules": {
+              "minLength": 3,
+              "maxLength": 40,
+              "pattern": "^[A-Za-z0-9 ,.'-]{3,40}$"
+            }
+          },
+          {
+            "id": "about_values_description",
+            "type": "textarea",
+            "label": "How would you describe the importance of your values?",
+            "description": "Explain why these principles guide your organisation.",
+            "helper": "Use clear and honest wording.",
+            "example": "Our values guide every decision we make, ensuring that our work stays consistent, reliable, and focused on meaningful outcomes.",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "rules": {
+              "minLength": 80,
+              "maxLength": 400,
+              "pattern": "^[A-Za-z0-9 ,.?'\"-]{80,400}$"
+            }
+          },
+          {
+            "id": "about_values_list",
+            "type": "group",
+            "label": "List the core values you follow",
+            "description": "Short statements explaining each principle clearly.",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "group": [
+              {
+                "id": "value_title",
+                "type": "text",
+                "label": "What is the name of this value?",
+                "example": "Integrity",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 40,
+                  "pattern": "^[A-Za-z ,.'-]{3,40}$"
+                }
+              },
+              {
+                "id": "value_description",
+                "type": "textarea",
+                "label": "How would you describe this value?",
+                "example": "We remain honest and transparent in every decision and interaction.",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 40,
+                  "maxLength": 200,
+                  "pattern": "^[A-Za-z0-9 ,.?'\"-]{40,200}$"
+                }
+              }
+            ]
+          },
+          {
+            "id": "about_values_images",
+            "type": "group",
+            "label": "Describe images that represent your values",
+            "description": "Explain the type of images that reflect your principles.",
+            "required": false,
+            "exclude": false,
+            "skip": false,
+            "group": [
+              {
+                "id": "purpose",
+                "type": "text",
+                "label": "What should this image show?",
+                "example": "A team collaborating with clarity and openness",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 80,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,80}$"
+                }
+              },
+              {
+                "id": "tagline",
+                "type": "text",
+                "label": "Short phrase describing this image",
+                "example": "Working with honesty",
+                "required": false,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 60,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,60}$"
+                }
+              },
+              {
+                "id": "description",
+                "type": "textarea",
+                "label": "Describe the image clearly",
+                "example": "A simple and clean workspace where team members openly discuss ideas and maintain a professional environment.",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 20,
+                  "maxLength": 200,
+                  "pattern": "^[A-Za-z0-9 ,.?'\"-]{20,200}$"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "about_team",
+        "type": "set",
+        "title": "Team Section",
+        "description": "Introduce the people who represent your organisation.",
+        "exclude": false,
+        "skip": false,
+        "fields": [
+          {
+            "id": "about_team_title",
+            "type": "text",
+            "label": "What title should introduce your team?",
+            "description": "A short heading presenting your team.",
+            "helper": "Keep it simple and clear.",
+            "example": "Meet Our Team",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "rules": {
+              "minLength": 3,
+              "maxLength": 40,
+              "pattern": "^[A-Za-z0-9 ,.'-]{3,40}$"
+            }
+          },
+          {
+            "id": "about_team_description",
+            "type": "textarea",
+            "label": "How would you describe your team?",
+            "description": "A short explanation about the people who drive your organisation.",
+            "helper": "Use honest and straightforward sentences.",
+            "example": "Our team is made up of dedicated individuals who value discipline, clarity, and meaningful work.",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "rules": {
+              "minLength": 80,
+              "maxLength": 400,
+              "pattern": "^[A-Za-z0-9 ,.?'\"-]{80,400}$"
+            }
+          },
+          {
+            "id": "about_team_members",
+            "type": "group",
+            "label": "Add your team members",
+            "description": "Provide the details for each member clearly.",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "group": [
+              {
+                "id": "name",
+                "type": "text",
+                "label": "What is this team member's full name?",
+                "example": "Rahul Sharma",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 50,
+                  "pattern": "^[A-Za-z ,.'-]{3,50}$"
+                }
+              },
+              {
+                "id": "role",
+                "type": "text",
+                "label": "What is this member's role?",
+                "example": "Lead Instructor",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 2,
+                  "maxLength": 40,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{2,40}$"
+                }
+              },
+              {
+                "id": "bio",
+                "type": "textarea",
+                "label": "Write a short bio for this member",
+                "example": "Rahul has over 10 years of experience helping learners build confidence and progress with structure and discipline.",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 80,
+                  "maxLength": 300,
+                  "pattern": "^[A-Za-z0-9 ,.?'\"-]{80,300}$"
+                }
+              },
+              {
+                "id": "image_description",
+                "type": "textarea",
+                "label": "Describe how this member should appear in their photo",
+                "description": "A clear description for the image. No photos are required.",
+                "helper": "Describe the environment, clothing, expressions, or general vibe.",
+                "example": "A friendly, professional portrait with a clean background and confident posture.",
+                "required": false,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 20,
+                  "maxLength": 200,
+                  "pattern": "^[A-Za-z0-9 ,.?'\"-]{20,200}$"
+                }
+              },
+              {
+                "id": "qualities",
+                "type": "group",
+                "label": "List notable qualities for this member",
+                "description": "Short phrases that describe their strengths.",
+                "required": false,
+                "exclude": false,
+                "skip": false,
+                "group": [
+                  {
+                    "id": "quality",
+                    "type": "text",
+                    "label": "What is one quality of this member?",
+                    "example": "Patient and methodical",
+                    "required": true,
+                    "exclude": false,
+                    "skip": false,
+                    "rules": {
+                      "minLength": 3,
+                      "maxLength": 60,
+                      "pattern": "^[A-Za-z0-9 ,.'-]{3,60}$"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "about_media_showcase",
+        "type": "set",
+        "title": "Media Showcase Section",
+        "description": "Display important images, videos, or audio that represent your organisation.",
+        "exclude": false,
+        "skip": false,
+        "fields": [
+          {
+            "id": "about_media_showcase_title",
+            "type": "text",
+            "label": "What title should introduce this media section?",
+            "description": "A short heading explaining what this media represents.",
+            "helper": "Keep it simple and clear.",
+            "example": "Our Work in Action",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "rules": {
+              "minLength": 3,
+              "maxLength": 40,
+              "pattern": "^[A-Za-z0-9 ,.'-]{3,40}$"
+            }
+          },
+          {
+            "id": "about_media_showcase_description",
+            "type": "textarea",
+            "label": "How would you describe the purpose of this media?",
+            "description": "Explain why this media is meaningful for visitors.",
+            "helper": "Use short, honest sentences.",
+            "example": "A collection of images and videos that highlight our approach, progress, and everyday work.",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "rules": {
+              "minLength": 80,
+              "maxLength": 400,
+              "pattern": "^[A-Za-z0-9 ,.?'\"-]{80,400}$"
+            }
+          },
+          {
+            "id": "about_media_showcase_images",
+            "type": "group",
+            "label": "Describe the images you want to showcase",
+            "description": "Explain the purpose and look of each image.",
+            "required": false,
+            "exclude": false,
+            "skip": false,
+            "group": [
+              {
+                "id": "purpose",
+                "type": "text",
+                "label": "What should this image show?",
+                "example": "Instructors guiding learners through practical sessions",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 80,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,80}$"
+                }
+              },
+              {
+                "id": "tagline",
+                "type": "text",
+                "label": "Short phrase describing this image",
+                "example": "Learning in progress",
+                "required": false,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 60,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,60}$"
+                }
+              },
+              {
+                "id": "description",
+                "type": "textarea",
+                "label": "Describe the image clearly",
+                "example": "A bright training space where learners and instructors work together with focus and discipline.",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 20,
+                  "maxLength": 200,
+                  "pattern": "^[A-Za-z0-9 ,.?'\"-]{20,200}$"
+                }
+              }
+            ]
+          },
+          {
+            "id": "about_media_showcase_videos",
+            "type": "group",
+            "label": "Describe the videos you want to showcase",
+            "description": "Explain the purpose and message of each video.",
+            "required": false,
+            "exclude": false,
+            "skip": false,
+            "group": [
+              {
+                "id": "purpose",
+                "type": "text",
+                "label": "What should this video highlight?",
+                "example": "A walkthrough showing how individuals progress through training sessions",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 80,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,80}$"
+                }
+              },
+              {
+                "id": "tagline",
+                "type": "text",
+                "label": "Short phrase describing this video",
+                "example": "Growth in motion",
+                "required": false,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 60,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,60}$"
+                }
+              },
+              {
+                "id": "description",
+                "type": "textarea",
+                "label": "Describe the video clearly",
+                "example": "A clean, simple video showing learners progressing steadily with structured guidance.",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 20,
+                  "maxLength": 200,
+                  "pattern": "^[A-Za-z0-9 ,.?'\"-]{20,200}$"
+                }
+              }
+            ]
+          },
+          {
+            "id": "about_media_showcase_audios",
+            "type": "group",
+            "label": "Describe the audio clips you want to showcase",
+            "description": "Explain what each audio clip should convey.",
+            "required": false,
+            "exclude": false,
+            "skip": false,
+            "group": [
+              {
+                "id": "purpose",
+                "type": "text",
+                "label": "What should this audio represent?",
+                "example": "A learner’s improvement over a period of consistent practice",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 80,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,80}$"
+                }
+              },
+              {
+                "id": "tagline",
+                "type": "text",
+                "label": "Short phrase describing this audio",
+                "example": "Progress you can hear",
+                "required": false,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 60,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,60}$"
+                }
+              },
+              {
+                "id": "description",
+                "type": "textarea",
+                "label": "Describe the audio clearly",
+                "example": "A clean recording showing improvement in rhythm, timing, and confidence over multiple sessions.",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 20,
+                  "maxLength": 200,
+                  "pattern": "^[A-Za-z0-9 ,.?'\"-]{20,200}$"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "about_cta_banner",
+        "type": "set",
+        "title": "Call-To-Action Banner",
+        "description": "A short, strong invitation for visitors to take action on the About page.",
+        "exclude": false,
+        "skip": false,
+        "fields": [
+          {
+            "id": "about_cta_title",
+            "type": "text",
+            "label": "What is the main banner title?",
+            "description": "A short, direct line that encourages action.",
+            "helper": "Use 3–8 words. No symbols.",
+            "example": "Join Our Programs Today",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "rules": {
+              "minLength": 3,
+              "maxLength": 60,
+              "pattern": "^[A-Za-z0-9 ,.'-]{3,60}$",
+              "patternMessage": "Only letters, numbers, spaces and basic punctuation are allowed."
+            }
+          },
+          {
+            "id": "about_cta_description",
+            "type": "textarea",
+            "label": "What brief message appears under the title?",
+            "description": "Explain the benefit of acting now in simple terms.",
+            "helper": "2–3 short sentences. End with proper punctuation.",
+            "example": "If you want structured learning and real progress, join our programs and start with a personalised plan.",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "rules": {
+              "minLength": 50,
+              "maxLength": 300,
+              "pattern": "^[A-Za-z0-9 ,.?'\"-]{50,300}$",
+              "patternMessage": "Use normal English sentences with standard punctuation."
+            }
+          },
+          {
+            "id": "about_cta_buttons",
+            "type": "group",
+            "label": "Add up to two buttons for this banner",
+            "description": "Each button needs a short text label and a simple destination description (path).",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "group": [
+              {
+                "id": "text",
+                "type": "text",
+                "label": "Button text",
+                "example": "Get Started",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 2,
+                  "maxLength": 25,
+                  "pattern": "^[A-Za-z0-9 ]{2,25}$",
+                  "patternMessage": "Keep it short and plain (letters, numbers and spaces only)."
+                }
+              },
+              {
+                "id": "path",
+                "type": "text",
+                "label": "Button destination (simple description)",
+                "description": "Write where the button should lead (no URLs).",
+                "helper": "Example: 'contact page', 'programs section', 'signup form'.",
+                "example": "programs page",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 60,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,60}$",
+                  "patternMessage": "Use a simple descriptive phrase."
+                }
+              }
+            ]
+          },
+          {
+            "id": "about_cta_icons",
+            "type": "group",
+            "label": "List small icon ideas to accompany the banner",
+            "description": "Optional short names describing icons (one per entry).",
+            "required": false,
+            "exclude": false,
+            "skip": false,
+            "group": [
+              {
+                "id": "icon",
+                "type": "text",
+                "label": "Icon name or idea",
+                "example": "Arrow right",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 2,
+                  "maxLength": 40,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{2,40}$"
+                }
+              }
+            ]
+          },
+          {
+            "id": "about_cta_images",
+            "type": "group",
+            "label": "Describe any supporting image for the banner",
+            "description": "Optional — describe the image concept, not the file.",
+            "required": false,
+            "exclude": false,
+            "skip": false,
+            "group": [
+              {
+                "id": "purpose",
+                "type": "text",
+                "label": "What should this image show?",
+                "example": "A confident student celebrating progress",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 80,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,80}$"
+                }
+              },
+              {
+                "id": "tagline",
+                "type": "text",
+                "label": "Short phrase describing the image",
+                "example": "Progress achieved",
+                "required": false,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 60,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,60}$"
+                }
+              },
+              {
+                "id": "description",
+                "type": "textarea",
+                "label": "Briefly describe the image",
+                "example": "A learner smiling while holding a certificate in a clean indoor setting.",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 20,
+                  "maxLength": 200,
+                  "pattern": "^[A-Za-z0-9 ,.?'\"-]{20,200}$"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "contact",
+    "type": "page",
+    "title": "Contact Page",
+    "description": "Content for the contact page of your website.",
+    "sets": [
+      {
+        "id": "contact_intro",
+        "type": "set",
+        "title": "Intro Section",
+        "description": "A short introduction encouraging visitors to reach out.",
+        "exclude": false,
+        "skip": false,
+        "fields": [
+          {
+            "id": "contact_intro_title",
+            "type": "text",
+            "label": "What is the main title for this section?",
+            "description": "A short heading that welcomes visitors to contact you.",
+            "helper": "Use a clear, simple line.",
+            "example": "Get in Touch",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "rules": {
+              "minLength": 3,
+              "maxLength": 40,
+              "pattern": "^[A-Za-z0-9 ,.'-]{3,40}$"
+            }
+          },
+          {
+            "id": "contact_intro_description",
+            "type": "textarea",
+            "label": "What message would you like to show under the title?",
+            "description": "Explain why visitors should reach out.",
+            "helper": "2–3 short sentences only.",
+            "example": "If you have questions or need guidance, we are here to help. Reach out and we will get back to you as soon as possible.",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "rules": {
+              "minLength": 60,
+              "maxLength": 300,
+              "pattern": "^[A-Za-z0-9 ,.?'\"-]{60,300}$"
+            }
+          },
+          {
+            "id": "contact_intro_taglines",
+            "type": "group",
+            "label": "Add short supportive taglines",
+            "description": "Small one-line phrases reinforcing the message.",
+            "required": false,
+            "exclude": false,
+            "skip": false,
+            "group": [
+              {
+                "id": "tagline",
+                "type": "text",
+                "label": "What short tagline should appear here?",
+                "example": "We respond within 24 hours",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 60,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,60}$"
+                }
+              }
+            ]
+          },
+          {
+            "id": "contact_intro_images",
+            "type": "group",
+            "label": "Describe images that should appear in this section",
+            "description": "Explain the idea of each image. No files needed.",
+            "required": false,
+            "exclude": false,
+            "skip": false,
+            "group": [
+              {
+                "id": "purpose",
+                "type": "text",
+                "label": "What should this image show?",
+                "example": "A friendly staff member assisting a customer",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 80,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,80}$"
+                }
+              },
+              {
+                "id": "tagline",
+                "type": "text",
+                "label": "Short phrase describing the image",
+                "example": "Here to help",
+                "required": false,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 60,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,60}$"
+                }
+              },
+              {
+                "id": "description",
+                "type": "textarea",
+                "label": "Describe the image clearly",
+                "example": "A clean and simple office setting where a staff member is smiling while offering assistance.",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 20,
+                  "maxLength": 200,
+                  "pattern": "^[A-Za-z0-9 ,.?'\"-]{20,200}$"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "contact_details",
+        "type": "set",
+        "title": "Contact Details Section",
+        "description": "Show all the ways someone can reach you.",
+        "exclude": false,
+        "skip": false,
+        "fields": [
+          {
+            "id": "contact_details_title",
+            "type": "text",
+            "label": "What title should appear above your contact details?",
+            "description": "A short heading introducing your contact information.",
+            "helper": "Keep it direct and simple.",
+            "example": "Contact Information",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "rules": {
+              "minLength": 3,
+              "maxLength": 40,
+              "pattern": "^[A-Za-z0-9 ,.'-]{3,40}$"
+            }
+          },
+          {
+            "id": "contact_details_description",
+            "type": "textarea",
+            "label": "What message should appear under the contact title?",
+            "description": "A short sentence explaining how visitors can reach you.",
+            "helper": "1–2 sentences only.",
+            "example": "You may reach us through any of the contact options below. We will respond as soon as possible.",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "rules": {
+              "minLength": 50,
+              "maxLength": 250,
+              "pattern": "^[A-Za-z0-9 ,.?'\"-]{50,250}$"
+            }
+          },
+          {
+            "id": "contact_details_addresses",
+            "type": "group",
+            "label": "Add your physical addresses",
+            "description": "Include full addresses that visitors may need.",
+            "required": false,
+            "exclude": false,
+            "skip": false,
+            "group": [
+              {
+                "id": "address",
+                "type": "textarea",
+                "label": "What is the address?",
+                "example": "123 Example Street, 2nd Floor, Bengaluru, Karnataka 560001",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 10,
+                  "maxLength": 200,
+                  "pattern": "^[A-Za-z0-9 ,.-]{10,200}$"
+                }
+              }
+            ]
+          },
+          {
+            "id": "contact_details_phone_numbers",
+            "type": "group",
+            "label": "Add phone numbers",
+            "description": "Provide official phone numbers visitors can call.",
+            "required": false,
+            "exclude": false,
+            "skip": false,
+            "group": [
+              {
+                "id": "phone",
+                "type": "tel",
+                "label": "What is the phone number?",
+                "example": "+91 9876543210",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "pattern": "^[0-9+ ]{8,15}$",
+                  "patternMessage": "Only numbers, spaces, and + symbol allowed."
+                }
+              },
+              {
+                "id": "label",
+                "type": "text",
+                "label": "What should this number be called?",
+                "description": "Describe the purpose of this number.",
+                "helper": "Example: 'Support', 'General Enquiry', 'Admissions'.",
+                "example": "Support",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 2,
+                  "maxLength": 40,
+                  "pattern": "^[A-Za-z ]{2,40}$"
+                }
+              }
+            ]
+          },
+          {
+            "id": "contact_details_emails",
+            "type": "group",
+            "label": "Add email addresses",
+            "description": "Provide official emails for support or enquiries.",
+            "required": false,
+            "exclude": false,
+            "skip": false,
+            "group": [
+              {
+                "id": "email",
+                "type": "email",
+                "label": "What is the email address?",
+                "example": "support@example.com",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "pattern": "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$",
+                  "patternMessage": "Enter a valid email format."
+                }
+              },
+              {
+                "id": "label",
+                "type": "text",
+                "label": "What is the purpose of this email?",
+                "example": "General Enquiries",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 2,
+                  "maxLength": 40,
+                  "pattern": "^[A-Za-z ]{2,40}$"
+                }
+              }
+            ]
+          },
+          {
+            "id": "contact_details_social_handles",
+            "type": "group",
+            "label": "Add your social media handles",
+            "description": "Include accounts where visitors can reach or follow you.",
+            "required": false,
+            "exclude": false,
+            "skip": false,
+            "group": [
+              {
+                "id": "platform",
+                "type": "text",
+                "label": "What is the name of the platform?",
+                "example": "Instagram",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 40,
+                  "pattern": "^[A-Za-z0-9 ]{3,40}$"
+                }
+              },
+              {
+                "id": "handle",
+                "type": "text",
+                "label": "What is your username or handle on this platform?",
+                "example": "@examplemusicacademy",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 2,
+                  "maxLength": 60,
+                  "pattern": "^[A-Za-z0-9@._-]{2,60}$"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "contact_form",
+        "type": "set",
+        "title": "Contact Form Section",
+        "description": "Collect the specific details you want from visitors who reach out through the form.",
+        "exclude": false,
+        "skip": false,
+        "fields": [
+          {
+            "id": "contact_form_title",
+            "type": "text",
+            "label": "What title should appear above the form?",
+            "description": "A short heading inviting visitors to submit a message.",
+            "helper": "Keep it simple and direct.",
+            "example": "Send Us a Message",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "rules": {
+              "minLength": 3,
+              "maxLength": 50,
+              "pattern": "^[A-Za-z0-9 ,.'-]{3,50}$"
+            }
+          },
+          {
+            "id": "contact_form_description",
+            "type": "textarea",
+            "label": "What short message should appear under the form title?",
+            "description": "Explain why the visitor should submit the form.",
+            "helper": "1–2 sentences only.",
+            "example": "Fill out the form below and our team will respond as soon as possible.",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "rules": {
+              "minLength": 50,
+              "maxLength": 250,
+              "pattern": "^[A-Za-z0-9 ,.?'\"-]{50,250}$"
+            }
+          },
+          {
+            "id": "contact_form_fields",
+            "type": "group",
+            "label": "List the fields you want in the contact form",
+            "description": "Describe each input field you want visitors to fill.",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "group": [
+              {
+                "id": "field_label",
+                "type": "text",
+                "label": "What should this field be called?",
+                "description": "This is the name of the field shown to visitors.",
+                "helper": "Examples: 'Full Name', 'Email', 'Phone Number'.",
+                "example": "Full Name",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 2,
+                  "maxLength": 40,
+                  "pattern": "^[A-Za-z0-9 ,.]{2,40}$"
+                }
+              },
+              {
+                "id": "field_type",
+                "type": "select",
+                "label": "What type of field is this?",
+                "description": "Choose the type of input the visitor must provide.",
+                "helper": "Pick the closest match.",
+                "example": "text",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "options": [
+                  {
+                    "value": "text",
+                    "label": "Text (short input)"
+                  },
+                  {
+                    "value": "textarea",
+                    "label": "Paragraph (long input)"
+                  },
+                  {
+                    "value": "email",
+                    "label": "Email Address"
+                  },
+                  {
+                    "value": "tel",
+                    "label": "Phone Number"
+                  },
+                  {
+                    "value": "number",
+                    "label": "Number Input"
+                  },
+                  {
+                    "value": "date",
+                    "label": "Date Input"
+                  }
+                ],
+                "rules": {
+                  "allowedValues": [
+                    "text",
+                    "textarea",
+                    "email",
+                    "tel",
+                    "number",
+                    "date"
+                  ]
+                }
+              },
+              {
+                "id": "field_required",
+                "type": "radio",
+                "label": "Is this field required?",
+                "description": "Choose if the visitor must fill this field.",
+                "example": "Yes",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "options": [
+                  {
+                    "value": "yes",
+                    "label": "Yes"
+                  },
+                  {
+                    "value": "no",
+                    "label": "No"
+                  }
+                ],
+                "rules": {
+                  "allowedValues": [
+                    "yes",
+                    "no"
+                  ]
+                }
+              },
+              {
+                "id": "field_help_text",
+                "type": "text",
+                "label": "What simple guidance should appear under this field?",
+                "description": "A short helpful line.",
+                "helper": "Example: 'Enter your full legal name'.",
+                "example": "Enter your full name as it appears officially.",
+                "required": false,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 80,
+                  "pattern": "^[A-Za-z0-9 ,.]{3,80}$"
+                }
+              }
+            ]
+          },
+          {
+            "id": "contact_form_buttons",
+            "type": "group",
+            "label": "Add the form submission button",
+            "description": "Describe the button text and its purpose.",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "group": [
+              {
+                "id": "text",
+                "type": "text",
+                "label": "What should the button say?",
+                "example": "Submit",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 2,
+                  "maxLength": 20,
+                  "pattern": "^[A-Za-z0-9 ]{2,20}$"
+                }
+              },
+              {
+                "id": "path",
+                "type": "text",
+                "label": "Where should this button lead after submission?",
+                "description": "Describe the destination or what should happen next.",
+                "helper": "Examples: 'show success message', 'redirect to thank you page'.",
+                "example": "show success message",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 60,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{3,60}$"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "contact_social_links",
+        "type": "set",
+        "title": "Social Links Section",
+        "description": "Show the social platforms where visitors can connect with you.",
+        "exclude": false,
+        "skip": false,
+        "fields": [
+          {
+            "id": "contact_social_title",
+            "type": "text",
+            "label": "What title should appear above your social links?",
+            "description": "A simple heading that introduces your social presence.",
+            "helper": "Keep it short and clear.",
+            "example": "Connect With Us",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "rules": {
+              "minLength": 3,
+              "maxLength": 40,
+              "pattern": "^[A-Za-z0-9 ,.'-]{3,40}$"
+            }
+          },
+          {
+            "id": "contact_social_description",
+            "type": "textarea",
+            "label": "What short message should appear under the title?",
+            "description": "Explain why visitors should connect with you on social platforms.",
+            "helper": "1–2 short sentences. No complicated wording.",
+            "example": "Follow us on our social platforms to stay updated with our latest news, programs, and achievements.",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "rules": {
+              "minLength": 60,
+              "maxLength": 300,
+              "pattern": "^[A-Za-z0-9 ,.?'\"-]{60,300}$"
+            }
+          },
+          {
+            "id": "contact_social_icons",
+            "type": "group",
+            "label": "List icon ideas for social links",
+            "description": "These are optional short names describing the icon style.",
+            "required": false,
+            "exclude": false,
+            "skip": false,
+            "group": [
+              {
+                "id": "icon",
+                "type": "text",
+                "label": "What icon idea do you want for this platform?",
+                "example": "Instagram logo outline",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 2,
+                  "maxLength": 50,
+                  "pattern": "^[A-Za-z0-9 ,.'-]{2,50}$"
+                }
+              }
+            ]
+          },
+          {
+            "id": "contact_social_accounts",
+            "type": "group",
+            "label": "Add your social media accounts",
+            "description": "Provide details for each platform you want to show.",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "group": [
+              {
+                "id": "platform",
+                "type": "text",
+                "label": "What is the name of the platform?",
+                "example": "Instagram",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 3,
+                  "maxLength": 40,
+                  "pattern": "^[A-Za-z0-9 ]{3,40}$"
+                }
+              },
+              {
+                "id": "handle",
+                "type": "text",
+                "label": "What is your username on this platform?",
+                "example": "@exampleacademy",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 2,
+                  "maxLength": 60,
+                  "pattern": "^[A-Za-z0-9@._-]{2,60}$"
+                }
+              },
+              {
+                "id": "description",
+                "type": "textarea",
+                "label": "How would you describe the purpose of this platform?",
+                "example": "We share important updates, behind-the-scenes work, and progress stories from our learners.",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 40,
+                  "maxLength": 250,
+                  "pattern": "^[A-Za-z0-9 ,.?'\"-]{40,250}$"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "contact_faq",
+        "type": "set",
+        "title": "FAQ Section",
+        "description": "A list of common questions and answers to help visitors quickly find the information they need.",
+        "exclude": false,
+        "skip": false,
+        "fields": [
+          {
+            "id": "contact_faq_title",
+            "type": "text",
+            "label": "What title should appear above your FAQ list?",
+            "description": "A simple heading that introduces the frequently asked questions.",
+            "helper": "Keep it short and direct.",
+            "example": "Frequently Asked Questions",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "rules": {
+              "minLength": 3,
+              "maxLength": 50,
+              "pattern": "^[A-Za-z0-9 ,.'-]{3,50}$"
+            }
+          },
+          {
+            "id": "contact_faq_description",
+            "type": "textarea",
+            "label": "What short message should appear under the FAQ title?",
+            "description": "Explain the purpose of the FAQ list in simple words.",
+            "helper": "1–2 sentences is enough.",
+            "example": "Here are answers to some of the most common questions we receive. This helps you find information quickly.",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "rules": {
+              "minLength": 50,
+              "maxLength": 250,
+              "pattern": "^[A-Za-z0-9 ,.?'\"-]{50,250}$"
+            }
+          },
+          {
+            "id": "contact_faq_items",
+            "type": "group",
+            "label": "Add each question and answer",
+            "description": "Provide a list of clear questions and detailed answers.",
+            "required": true,
+            "exclude": false,
+            "skip": false,
+            "group": [
+              {
+                "id": "question",
+                "type": "text",
+                "label": "What is the question?",
+                "description": "Enter one question that visitors commonly ask.",
+                "helper": "Keep it simple and understandable.",
+                "example": "How soon can I expect a reply?",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 5,
+                  "maxLength": 120,
+                  "pattern": "^[A-Za-z0-9 ,.?'\"-]{5,120}$"
+                }
+              },
+              {
+                "id": "answer",
+                "type": "textarea",
+                "label": "What is the answer to this question?",
+                "description": "Provide a clear explanation that solves the visitor’s doubt.",
+                "helper": "Avoid technical terms. Use plain, direct language.",
+                "example": "Our team usually responds within 24–48 hours on business days. For urgent situations, we may reply sooner.",
+                "required": true,
+                "exclude": false,
+                "skip": false,
+                "rules": {
+                  "minLength": 60,
+                  "maxLength": 500,
+                  "pattern": "^[A-Za-z0-9 ,.?'\"-]{60,500}$"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
