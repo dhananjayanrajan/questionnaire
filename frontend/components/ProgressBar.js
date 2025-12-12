@@ -67,7 +67,7 @@ export function renderProgressBar(
   // Note: Top position will be calculated dynamically in main.js
   progressBar.className = 'relative w-full bg-black/90 backdrop-blur-sm border-b border-gray-800 shadow-lg transition-all duration-200';
   progressBar.innerHTML = `
-    <div class="max-w-3xl w-full mx-auto pt-1 pb-6 px-6 md:px-1">
+    <div class="max-w-3xl w-full mx-auto pt-1 pb-6 px-6 sm:px-1">
       <div class="flex items-center justify-between text-sm font-semibold text-gray-400 mb-3">
         <span class="text-white">Progress</span>
         <div class="flex space-x-4">
