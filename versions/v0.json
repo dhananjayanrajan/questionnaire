@@ -1,12 +1,7 @@
 {
-  "hero_taglines": [
-    {
-      "hero_tagline": ""
-    }
-  ],
+  "hero_title": "",
   "_excludedSections": {},
   "_excludedFields": {},
   "_skippedSections": {},
-  "_skippedFields": {},
-  "hero_title": ""
+  "_skippedFields": {}
 }

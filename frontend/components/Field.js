@@ -1,3 +1,4 @@
+// field.js
 export function renderField(question, value = '', onSave, namespace = '', sectionDisabled = false, fieldExcluded = false, onToggleFieldExclude = null, questionNumber = null, fieldSkipped = false, onToggleFieldSkip = null) {
   const {
     id,
@@ -16,16 +17,13 @@ export function renderField(question, value = '', onSave, namespace = '', sectio
     exclude,
     skip
   } = question;
-
   const fullId = `${namespace}${id}`;
   const isExcluded = exclude !== undefined ? exclude === true : fieldExcluded;
   const isSkipped = skip !== undefined ? skip === true : fieldSkipped;
   const disabled = sectionDisabled || isExcluded || isSkipped;
-
   const inputBase = 'w-full px-input-padding-x py-input-padding-y bg-surface border border-input-border rounded-input text-text-primary placeholder-text-tertiary text-base transition-colors duration-200 focus:outline-none focus:ring-0 focus:border-blue-500 focus:shadow-blue-500 disabled:opacity-50 disabled:cursor-not-allowed';
   const errorClass = 'mt-2.5 text-red-500 text-sm font-medium leading-tight';
   const successClass = 'mt-2.5 text-emerald-500 text-sm font-medium leading-tight';
-
   function escapeHtml(str) {
     if (str === null || str === undefined) return '';
     return String(str)
@@ -34,7 +32,6 @@ export function renderField(question, value = '', onSave, namespace = '', sectio
       .replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;');
   }
-
   const badges = [];
   if (required && !disabled) {
     badges.push('<span class="inline-flex items-center justify-center px-2 py-0.5 bg-error/10 text-error text-[10px] font-bold rounded-badge uppercase tracking-wider">Required</span>');
@@ -54,9 +51,8 @@ export function renderField(question, value = '', onSave, namespace = '', sectio
   if (validation || rules.pattern) {
     badges.push('<span class="inline-flex items-center justify-center px-2 py-0.5 bg-purple-500/10 text-purple-400 text-[10px] font-semibold rounded-badge">Pattern</span>');
   }
-
   const baseHTML = `
-    <fieldset class="flex flex-col gap-4 p-4 border sm:border-2 sm:rounded-field bg-surface-soft transition-colors duration-200 ${isSkipped ? 'border-yellow-500/50 bg-yellow-500/5' : isExcluded ? 'border-orange-500/50 bg-orange-500/5' : 'border-input-border'}">
+    <fieldset class="flex flex-col gap-4 p-4 border sm:border-2 sm:rounded-field bg-black/80 transition-colors duration-200 ${isSkipped ? 'border-yellow-500/50 bg-yellow-500/5' : isExcluded ? 'border-orange-500/50 bg-orange-500/5' : 'border-input-border'}">
       <div class="flex flex-col sm:flex-row items-start justify-between cursor-pointer" id="field-header-${fullId}">
         <div class="flex items-center gap-3 w-full">
            ${helper || example ? `
@@ -88,7 +84,6 @@ export function renderField(question, value = '', onSave, namespace = '', sectio
           </div>
         </div>
       </div>
-
       <div id="info-container-${fullId}" class="hidden p-4 bg-blue-500/5 border border-blue-500/20 rounded-lg">
         ${helper ? `<div class="flex gap-2">
           <span class="inline-flex items-center text-[12px] font-mono text-blue-400">Helper:</span>
@@ -99,33 +94,27 @@ export function renderField(question, value = '', onSave, namespace = '', sectio
           <span class="inline-flex items-center text-[12px] font-mono text-gray-300">${example}</span>
         </div>` : ''}
       </div>
-
       <div id="field-body-${fullId}" class="transition-all duration-200 ${disabled ? 'opacity-50 pointer-events-none grayscale' : ''}">
         ${description ? `<p class="text-text-tertiary text-sm ml-2 mb-4">${description}</p>` : ''}
         ${badges.length > 0 ? `<div class="flex flex-wrap gap-2 mb-4">${badges.join('')}</div>` : ''}
-        
         <div class="mt-3">
           <div id="field-content-wrapper-${fullId}">
             <div id="field-content-${fullId}"></div>
           </div>
         </div>
-
         <div id="error-${fullId}" class="${errorClass} hidden"></div>
         <div id="success-${fullId}" class="${successClass} hidden"></div>
       </div>
     </fieldset>
   `;
-
   const field = document.createElement('div');
-  field.className = 'sm:mb-4';
+  field.className = '!mt-2 sm:my-0';
   field.innerHTML = baseHTML;
-
   const headerEl = field.querySelector(`#field-header-${fullId}`);
   const bodyEl = field.querySelector(`#field-body-${fullId}`);
   const collapseIcon = field.querySelector(`#collapse-icon-${fullId}`);
   const contentEl = field.querySelector(`#field-content-${fullId}`);
   const errorEl = field.querySelector(`#error-${fullId}`);
-
   const skipBtn = field.querySelector(`#skip-btn-${fullId}`);
   if (skipBtn && onToggleFieldSkip) {
     skipBtn.addEventListener('click', (e) => {
@@ -139,7 +128,6 @@ export function renderField(question, value = '', onSave, namespace = '', sectio
       }
     });
   }
-
   const excludeBtn = field.querySelector(`#exclude-btn-${fullId}`);
   if (excludeBtn && onToggleFieldExclude) {
     excludeBtn.addEventListener('click', (e) => {
@@ -153,7 +141,6 @@ export function renderField(question, value = '', onSave, namespace = '', sectio
       }
     });
   }
-
   const infoBtn = field.querySelector(`#info-btn-${fullId}`);
   if (infoBtn) {
     infoBtn.addEventListener('click', (e) => {
@@ -162,13 +149,11 @@ export function renderField(question, value = '', onSave, namespace = '', sectio
       if (infoContainer) infoContainer.classList.toggle('hidden');
     });
   }
-
   let collapsed = isExcluded || isSkipped;
   if (collapsed) {
     bodyEl.classList.add('hidden');
     collapseIcon.classList.add('-rotate-90');
   }
-
   headerEl.addEventListener('click', (e) => {
     if (e.target.tagName === 'INPUT' || e.target.tagName === 'BUTTON' || e.target.closest('button')) return;
     collapsed = !collapsed;
@@ -180,21 +165,17 @@ export function renderField(question, value = '', onSave, namespace = '', sectio
       collapseIcon.classList.remove('-rotate-90');
     }
   });
-
   const updateFieldBorder = () => {
     const fieldset = field.querySelector('fieldset');
     if (!fieldset) return;
-
     if (disabled) {
       fieldset.classList.remove('border-red-500', 'border-emerald-500', 'bg-emerald-500/5', 'bg-red-500/5');
       fieldset.classList.add(isExcluded ? 'border-orange-500' : isSkipped ? 'border-yellow-500' : 'border-input-border');
       return;
     }
-
     const hasDirectError = !!window.fieldErrors?.[fullId];
     const hasChildError = window.fieldErrors && Object.keys(window.fieldErrors).some(k => k.startsWith(fullId + '-'));
     const hasError = hasDirectError || hasChildError;
-
     const val = getValue();
     let isEmpty = val === undefined || val === null || val === '';
     if (Array.isArray(val)) {
@@ -206,15 +187,12 @@ export function renderField(question, value = '', onSave, namespace = '', sectio
         });
       }
     }
-
     fieldset.classList.remove('border-red-500', 'border-emerald-500', 'border-orange-500', 'border-yellow-500', 'bg-surface-soft', 'bg-emerald-500/5', 'bg-red-500/5');
     fieldset.classList.add('bg-surface-soft');
-
     const numberSquare = field.querySelector(`#field-number-${fullId}`);
     if (numberSquare) {
       numberSquare.classList.remove('bg-red-500/10', 'border-red-500/30', 'text-red-400', 'bg-emerald-500/10', 'border-emerald-500/30', 'text-emerald-400', 'bg-blue-500/10', 'border-blue-500/30', 'text-blue-400', 'bg-orange-500/10', 'border-orange-500/30', 'text-orange-400', 'bg-yellow-500/10', 'border-yellow-500/30', 'text-yellow-400');
     }
-
     if (hasError) {
       fieldset.classList.add('border-red-500', 'bg-red-500/5');
       if (numberSquare) numberSquare.classList.add('bg-red-500/10', 'border-red-500/30', 'text-red-400');
@@ -226,9 +204,7 @@ export function renderField(question, value = '', onSave, namespace = '', sectio
       if (numberSquare) numberSquare.classList.add('bg-blue-500/10', 'border-blue-500/30', 'text-blue-400');
     }
   };
-
   let getValue = () => value;
-
   const runCustomValidation = (val) => {
     if (disabled) return true;
     if (required) {
@@ -255,7 +231,6 @@ export function renderField(question, value = '', onSave, namespace = '', sectio
     }
     return true;
   };
-
   const showError = (msg, touched = true) => {
     if (disabled) return;
     if (msg && touched) {
@@ -271,7 +246,6 @@ export function renderField(question, value = '', onSave, namespace = '', sectio
     if (typeof window.updateProgress === 'function') window.updateProgress();
     updateFieldBorder();
   };
-
   const buildInputHTML = () => {
     const disabledAttr = disabled ? 'disabled' : '';
     switch (type) {
@@ -325,12 +299,10 @@ export function renderField(question, value = '', onSave, namespace = '', sectio
         return `<input type="text" id="${fullId}" value="${escapeHtml(value)}" class="${inputBase}" placeholder="" />`;
     }
   };
-
   if (type !== 'group') {
     const inputHTML = buildInputHTML();
     contentEl.innerHTML = inputHTML || '';
     const input = field.querySelector(`#${fullId}`);
-
     getValue = () => {
       if (type === 'checkbox') {
         return Array.from(field.querySelectorAll(`input[name="${fullId}"]:checked`)).map(cb => cb.value);
@@ -341,7 +313,6 @@ export function renderField(question, value = '', onSave, namespace = '', sectio
       }
       return input ? input.value : '';
     };
-
     const validate = () => {
       if (disabled) return true;
       const val = getValue();
@@ -355,7 +326,6 @@ export function renderField(question, value = '', onSave, namespace = '', sectio
       showError('', true);
       return true;
     };
-
     if (input && !disabled) {
       input.addEventListener('input', validate);
       input.addEventListener('blur', validate);
@@ -371,29 +341,23 @@ export function renderField(question, value = '', onSave, namespace = '', sectio
     if (['checkbox', 'radio'].includes(type) && !disabled) {
       field.querySelectorAll(`input[name="${fullId}"]`).forEach(cb => cb.addEventListener('change', validate));
     }
-
     field.validate = () => validate();
     field.setAttribute('data-has-validate', 'true');
-
     if (window.fieldErrors && window.fieldErrors[fullId] && !disabled) {
       errorEl.textContent = window.fieldErrors[fullId];
       errorEl.classList.remove('hidden');
     }
-
     field.updateBorder = updateFieldBorder;
     updateFieldBorder();
     return field;
   }
-
   // GROUP FIELDSET
   const localItems = Array.isArray(value) ? value.map(v => ({ ...v })) : [{}];
   getValue = () => localItems;
-
   const groupContainer = document.createElement('div');
   groupContainer.id = `group-container-${fullId}`;
   groupContainer.className = 'space-y-4 mb-2';
   contentEl.appendChild(groupContainer);
-
   if (!disabled) {
     const addBtn = document.createElement('button');
     addBtn.type = 'button';
@@ -417,19 +381,16 @@ export function renderField(question, value = '', onSave, namespace = '', sectio
     });
     contentEl.appendChild(addBtn);
   }
-
   const makeEmptyItem = () => {
     const n = {};
     group.forEach(q => { n[q.id] = q.type === 'checkbox' ? false : ''; });
     return n;
   };
-
   const renderGroupItems = () => {
     groupContainer.innerHTML = '';
     localItems.forEach((item, idx) => {
       const itemWrapper = document.createElement('div');
       itemWrapper.className = 'group-item border border-gray-800 rounded-xl bg-black/50 p-4 relative';
-
       const header = document.createElement('div');
       header.className = 'flex items-center justify-between mb-4 cursor-pointer';
       header.innerHTML = `
@@ -440,11 +401,9 @@ export function renderField(question, value = '', onSave, namespace = '', sectio
           <h3 class="text-white font-medium">Entry ${idx + 1}</h3>
         </div>
       `;
-
       const controlsDiv = document.createElement('div');
       controlsDiv.className = 'flex items-center space-x-2';
       header.appendChild(controlsDiv);
-
       if (!disabled) {
         const removeBtn = document.createElement('button');
         removeBtn.type = 'button';
@@ -458,19 +417,29 @@ export function renderField(question, value = '', onSave, namespace = '', sectio
         });
         controlsDiv.appendChild(removeBtn);
       }
-
       const collapseBtnItem = document.createElement('button');
       collapseBtnItem.type = 'button';
       collapseBtnItem.className = 'p-1.5 text-gray-400 hover:text-white hover:bg-gray-800 rounded-md transition-all duration-200 transform';
       collapseBtnItem.innerHTML = `<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>`;
+      collapseBtnItem.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const grid = itemWrapper.querySelector('.group-grid');
+        const icon = collapseBtnItem.querySelector('svg');
+        itemWrapper.collapsed = !itemWrapper.collapsed;
+        if (itemWrapper.collapsed) {
+          grid.classList.add('hidden');
+          collapseBtnItem.classList.add('-rotate-90');
+        } else {
+          grid.classList.remove('hidden');
+          collapseBtnItem.classList.remove('-rotate-90');
+        }
+      });
       controlsDiv.appendChild(collapseBtnItem);
 
       itemWrapper.appendChild(header);
-
       const grid = document.createElement('div');
-      grid.className = 'grid grid-cols-1 gap-2';
+      grid.className = 'group-grid grid grid-cols-1 gap-2';
       itemWrapper.appendChild(grid);
-
       group.forEach((subQ) => {
         const subNamespace = `${fullId}-item${idx}-`;
         const subValue = item[subQ.id] ?? (subQ.type === 'checkbox' ? false : '');
@@ -495,6 +464,11 @@ export function renderField(question, value = '', onSave, namespace = '', sectio
               localItems.forEach(entry => delete entry[subQ.id]);
               onSave(id, localItems);
             }
+            // Auto-set group skip/exclude if all subfields share state
+            const allSkipped = group.every(g => g.skip);
+            const allExcluded = group.every(g => g.exclude);
+            if (allSkipped && onToggleFieldSkip) onToggleFieldSkip(id);
+            if (allExcluded && onToggleFieldExclude) onToggleFieldExclude(id);
           },
           null,
           subQ.skip,
@@ -507,6 +481,11 @@ export function renderField(question, value = '', onSave, namespace = '', sectio
               localItems.forEach(entry => delete entry[subQ.id]);
               onSave(id, localItems);
             }
+            // Auto-set group skip/exclude if all subfields share state
+            const allSkipped = group.every(g => g.skip);
+            const allExcluded = group.every(g => g.exclude);
+            if (allSkipped && onToggleFieldSkip) onToggleFieldSkip(id);
+            if (allExcluded && onToggleFieldExclude) onToggleFieldExclude(id);
           }
         );
         const wrapperDiv = document.createElement('div');
@@ -514,26 +493,16 @@ export function renderField(question, value = '', onSave, namespace = '', sectio
         grid.appendChild(wrapperDiv);
       });
 
-      let itemCollapsed = false;
-      header.addEventListener('click', (e) => {
-        if (e.target.tagName === 'BUTTON' || e.target.closest('button')) return;
-        itemCollapsed = !itemCollapsed;
-        if (itemCollapsed) {
-          grid.classList.add('hidden');
-          collapseBtnItem.classList.add('-rotate-90');
-        } else {
-          grid.classList.remove('hidden');
-          collapseBtnItem.classList.remove('-rotate-90');
-        }
-      });
+      // Set initial collapsed state
+      itemWrapper.collapsed = false;
+      grid.classList.remove('hidden');
+      collapseBtnItem.classList.remove('-rotate-90');
 
       groupContainer.appendChild(itemWrapper);
     });
     updateFieldBorder();
   };
-
   renderGroupItems();
-
   const validateGroup = () => {
     if (disabled) return true;
     const validEntries = localItems.filter(entry =>
@@ -557,11 +526,9 @@ export function renderField(question, value = '', onSave, namespace = '', sectio
     if (allValid) showError('');
     return allValid;
   };
-
   field.validate = () => validateGroup();
   field.setAttribute('data-has-validate', 'true');
   field.updateBorder = updateFieldBorder;
-
   updateFieldBorder();
   return field;
 }

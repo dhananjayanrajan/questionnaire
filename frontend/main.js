@@ -1,21 +1,19 @@
+// main.js
 import { renderHeader } from './components/Header.js';
 import { renderFooter } from './components/Footer.js';
 import { renderProgressBar } from './components/ProgressBar.js';
 import { renderPagination } from './components/Pagination.js';
 import { renderField } from './components/Field.js';
-
 let responses = {};
 let currentPageIndex = 0;
 let currentSetIndex = 0;
 let questionnaire = [];
 let fieldComponents = {};
-
 window.questionnaire = [];
 window.fieldErrors = {};
 window.currentPageIndex = 0;
 window.currentSetIndex = 0;
 window.updateProgress = () => { };
-
 function debounce(func, wait) {
     let timeout;
     return (...args) => {
@@ -23,14 +21,12 @@ function debounce(func, wait) {
         timeout = setTimeout(() => func.apply(this, args), wait);
     };
 }
-
 const saveVersion = debounce(async (data) => {
     try {
         const _excludedSections = {};
         const _excludedFields = {};
         const _skippedSections = {};
         const _skippedFields = {};
-
         questionnaire.forEach((page, pIdx) => {
             if (page.sets) {
                 page.sets.forEach((set, sIdx) => {
@@ -45,7 +41,6 @@ const saveVersion = debounce(async (data) => {
                 });
             }
         });
-
         const payload = {
             ...responses,
             _excludedSections,
@@ -53,7 +48,6 @@ const saveVersion = debounce(async (data) => {
             _skippedSections,
             _skippedFields
         };
-
         await fetch('/api/save-version', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -63,7 +57,6 @@ const saveVersion = debounce(async (data) => {
         console.error('Auto-save failed');
     }
 }, 1500);
-
 async function loadLatestState() {
     try {
         const res = await fetch('/api/latest-version');
@@ -71,12 +64,10 @@ async function loadLatestState() {
         if (result.exists) {
             responses = result.data || {};
             window.responses = { ...responses };
-
             const savedExcludedSections = responses._excludedSections || {};
             const savedExcludedFields = responses._excludedFields || {};
             const savedSkippedSections = responses._skippedSections || {};
             const savedSkippedFields = responses._skippedFields || {};
-
             for (let p = 0; p < questionnaire.length; p++) {
                 const page = questionnaire[p];
                 if (!page.sets) continue;
@@ -88,11 +79,17 @@ async function loadLatestState() {
                         for (const field of set.fields) {
                             field.exclude = !!savedExcludedFields[field.id];
                             field.skip = !!savedSkippedFields[field.id];
+                            // Propagate skip/exclude to group subfields
+                            if (field.type === 'group' && field.group) {
+                                for (const subField of field.group) {
+                                    subField.exclude = field.exclude;
+                                    subField.skip = field.skip;
+                                }
+                            }
                         }
                     }
                 }
             }
-
             window.fieldErrors = {};
             questionnaire.forEach(page => {
                 (page.sets || []).forEach(set => {
@@ -108,7 +105,6 @@ async function loadLatestState() {
                     });
                 });
             });
-
             for (let p = 0; p < questionnaire.length; p++) {
                 const page = questionnaire[p];
                 for (let s = 0; s < page.sets.length; s++) {
@@ -148,7 +144,6 @@ async function loadLatestState() {
         resetNavigation();
     }
 }
-
 function resetExclusionState() {
     for (let p = 0; p < questionnaire.length; p++) {
         const page = questionnaire[p];
@@ -166,7 +161,6 @@ function resetExclusionState() {
     }
     window.fieldErrors = {};
 }
-
 function resetFieldStateRecursive(field) {
     field.exclude = false;
     field.skip = false;
@@ -174,7 +168,6 @@ function resetFieldStateRecursive(field) {
         field.group.forEach(subField => resetFieldStateRecursive(subField));
     }
 }
-
 async function init() {
     questionnaire = [];
     window.questionnaire = [];
@@ -188,10 +181,8 @@ async function init() {
         document.getElementById('app').innerHTML = `<div class="text-red-500 p-4">Failed to load questions: ${err.message}</div>`;
         return;
     }
-
     await loadLatestState();
     renderApp();
-
     window.addEventListener('beforeunload', () => {
         const _excludedSections = {};
         const _excludedFields = {};
@@ -214,19 +205,16 @@ async function init() {
         saveVersion({ ...responses, _excludedSections, _excludedFields, _skippedSections, _skippedFields });
     });
 }
-
 function resetNavigation() {
     currentPageIndex = 0;
     currentSetIndex = 0;
 }
-
 function getCurrentSet() {
     if (questionnaire.length === 0) return null;
     const page = questionnaire[currentPageIndex];
     if (!page || !page.sets || currentSetIndex >= page.sets.length) return null;
     return page.sets[currentSetIndex];
 }
-
 function clearErrorsFor(fieldId) {
     if (window.fieldErrors[fieldId]) delete window.fieldErrors[fieldId];
     const prefix = fieldId + '-';
@@ -234,7 +222,6 @@ function clearErrorsFor(fieldId) {
         if (key.startsWith(prefix)) delete window.fieldErrors[key];
     });
 }
-
 function findFieldRecursive(fields, targetId) {
     for (const f of fields) {
         if (f.id === targetId) return f;
@@ -245,7 +232,6 @@ function findFieldRecursive(fields, targetId) {
     }
     return null;
 }
-
 function setFieldStateRecursive(field, excludeValue, skipValue) {
     field.exclude = excludeValue;
     field.skip = skipValue;
@@ -258,7 +244,6 @@ function setFieldStateRecursive(field, excludeValue, skipValue) {
         field.group.forEach(subField => setFieldStateRecursive(subField, excludeValue, skipValue));
     }
 }
-
 function toggleSectionExclusion() {
     const set = getCurrentSet();
     if (!set) return;
@@ -273,7 +258,6 @@ function toggleSectionExclusion() {
     saveVersion({ ...responses });
     renderApp();
 }
-
 function toggleSectionSkip() {
     const set = getCurrentSet();
     if (!set) return;
@@ -288,13 +272,11 @@ function toggleSectionSkip() {
     saveVersion({ ...responses });
     renderApp();
 }
-
 function toggleFieldExclusion(fieldId) {
     const set = getCurrentSet();
     if (!set) return;
     const field = findFieldRecursive(set.fields, fieldId);
     if (!field) return;
-
     if (field.exclude) {
         setFieldStateRecursive(field, false, field.skip);
         set.exclude = false;
@@ -302,17 +284,19 @@ function toggleFieldExclusion(fieldId) {
         setFieldStateRecursive(field, true, false);
         const allExcluded = set.fields.every(f => f.exclude);
         if (allExcluded) set.exclude = true;
+        // For group fields, propagate to subfields
+        if (field.type === 'group' && field.group) {
+            field.group.forEach(sub => sub.exclude = true);
+        }
     }
     saveVersion({ ...responses });
     renderApp();
 }
-
 function toggleFieldSkip(fieldId) {
     const set = getCurrentSet();
     if (!set) return;
     const field = findFieldRecursive(set.fields, fieldId);
     if (!field) return;
-
     if (field.skip) {
         setFieldStateRecursive(field, field.exclude, false);
         set.skip = false;
@@ -320,11 +304,14 @@ function toggleFieldSkip(fieldId) {
         setFieldStateRecursive(field, false, true);
         const allSkipped = set.fields.every(f => f.skip);
         if (allSkipped) set.skip = true;
+        // For group fields, propagate to subfields
+        if (field.type === 'group' && field.group) {
+            field.group.forEach(sub => sub.skip = true);
+        }
     }
     saveVersion({ ...responses });
     renderApp();
 }
-
 function getEffectiveCounts() {
     let activePagesCount = 0;
     let activeCurrentPageNum = 1;
@@ -336,7 +323,6 @@ function getEffectiveCounts() {
             if (p === currentPageIndex) activeCurrentPageNum = activePagesCount;
         }
     }
-
     let activeSetsCount = 0;
     let activeCurrentSetNum = 1;
     if (questionnaire[currentPageIndex]) {
@@ -350,7 +336,6 @@ function getEffectiveCounts() {
             }
         }
     }
-
     return {
         activePagesCount,
         activeCurrentPageNum,
@@ -358,13 +343,11 @@ function getEffectiveCounts() {
         activeCurrentSetNum
     };
 }
-
 function renderApp() {
     const app = document.getElementById('app');
     app.innerHTML = '';
-    app.style.paddingTop = '240px';
-    app.style.paddingBottom = '90px';
-
+    app.style.paddingTop = '230px';
+    app.style.paddingBottom = '80px';
     let fixedRoot = document.getElementById('fixed-header-root');
     if (!fixedRoot) {
         fixedRoot = document.createElement('div');
@@ -373,24 +356,20 @@ function renderApp() {
         document.body.insertBefore(fixedRoot, document.body.firstChild);
     }
     fixedRoot.innerHTML = '';
-
     const set = getCurrentSet();
     if (!set) {
         app.innerHTML = '<div class="max-w-3xl w-full mx-auto px-4 py-10 text-red-500">No valid section to display.</div>';
         return;
     }
-
     const page = questionnaire[currentPageIndex];
     const ef = getEffectiveCounts();
     const isDisabled = set.exclude || set.skip;
     const headerComp = renderHeader(page, ef.activeCurrentPageNum, ef.activePagesCount, 'pending', isDisabled, toggleSectionExclusion);
     headerComp.querySelector('.section-progress-text').textContent = `${ef.activeCurrentSetNum} / ${ef.activeSetsCount}`;
     fixedRoot.appendChild(headerComp);
-
     window.updateProgress = () => {
         let totalReq = 0, completedReq = 0;
         let totalOpt = 0, completedOpt = 0;
-
         for (let p = 0; p < questionnaire.length; p++) {
             const page = questionnaire[p];
             if (!page.sets) continue;
@@ -420,17 +399,13 @@ function renderApp() {
                 }
             }
         }
-
         const reqPercent = totalReq > 0 ? Math.round((completedReq / totalReq) * 100) : 100;
         const optPercent = totalOpt > 0 ? Math.round((completedOpt / totalOpt) * 100) : 0;
-
         window.completedFields = completedReq + completedOpt;
         window.totalFields = totalReq + totalOpt;
-
         const pagesProgress = [];
         let globalSetIdx = 0;
         let currentSectionStatus = 'pending';
-
         for (let p = 0; p < questionnaire.length; p++) {
             const pPage = questionnaire[p];
             const pageSections = [];
@@ -439,7 +414,6 @@ function renderApp() {
                 let status = 'pending';
                 const isActive = p === currentPageIndex && s === currentSetIndex;
                 if (isActive) window.currentGlobalSetIndex = globalSetIdx;
-
                 if (pSet.exclude || pSet.skip) {
                     status = isActive ? 'active-disabled' : 'disabled';
                     if (isActive) currentSectionStatus = 'disabled';
@@ -449,7 +423,6 @@ function renderApp() {
                         if (window.fieldErrors[f.id]) return true;
                         return Object.keys(window.fieldErrors).some(k => k.startsWith(f.id + '-'));
                     });
-
                     let isCompleted = true;
                     let hasAnyData = false;
                     for (const f of pSet.fields) {
@@ -470,7 +443,6 @@ function renderApp() {
                         const hasRequired = pSet.fields.some(f => !(f.exclude || f.skip) && f.required);
                         if (!hasRequired) isCompleted = false;
                     }
-
                     if (isActive) {
                         status = hasError ? 'active-error' : 'active';
                         currentSectionStatus = hasError ? 'error' : (isCompleted ? 'completed' : 'pending');
@@ -483,7 +455,6 @@ function renderApp() {
             }
             pagesProgress.push({ sections: pageSections });
         }
-
         const header = document.querySelector('header');
         if (header) {
             const efUpdate = getEffectiveCounts();
@@ -491,12 +462,10 @@ function renderApp() {
             newHeader.querySelector('.section-progress-text').textContent = `${efUpdate.activeCurrentSetNum} / ${efUpdate.activeSetsCount}`;
             header.replaceWith(newHeader);
         }
-
         const progressBar = renderProgressBar(pagesProgress, reqPercent, optPercent);
         const existing = document.querySelector('#progress-root');
         if (existing) existing.replaceWith(progressBar);
         else fixedRoot.appendChild(progressBar);
-
         const paginationRoot = document.querySelector('#pagination-root');
         if (paginationRoot) {
             const pagination = renderPagination(
@@ -511,11 +480,9 @@ function renderApp() {
             const hasVisibleErrors = document.querySelector('.text-red-500:not(.hidden)');
             if (hasVisibleErrors && errorAlert) errorAlert.classList.remove('hidden');
         }
-
         Object.values(fieldComponents).forEach(comp => {
             if (comp && typeof comp.updateBorder === 'function') comp.updateBorder();
         });
-
         const paginationNumber = document.getElementById('pagination-section-number');
         if (paginationNumber) {
             paginationNumber.className = 'flex-shrink-0 size-10 rounded-lg border flex items-center justify-center mr-5 text-lg font-medium transition-colors duration-300';
@@ -528,7 +495,6 @@ function renderApp() {
             }
         }
     };
-
     function isValueEmpty(val, field) {
         if (val === undefined || val === '' || val === null) return true;
         if (Array.isArray(val)) {
@@ -542,14 +508,11 @@ function renderApp() {
         }
         return false;
     }
-
     window.currentPageIndex = currentPageIndex;
     window.currentSetIndex = currentSetIndex;
-
     const container = document.createElement('div');
     container.className = 'max-w-3xl w-full mx-auto sm:px-4 sm:space-y-8';
     fieldComponents = {};
-
     set.fields.forEach((field, index) => {
         const isSectionDisabled = set.exclude || set.skip;
         const fieldComp = renderField(
@@ -571,15 +534,12 @@ function renderApp() {
         fieldComponents[field.id] = fieldComp;
         container.appendChild(fieldComp);
     });
-
     app.appendChild(container);
     window.updateProgress();
-
     const totalPages = questionnaire.length;
     const totalSets = page.sets.length;
     window.isAtLastStep = currentPageIndex === totalPages - 1 && currentSetIndex === totalSets - 1;
     window.isFirstStep = currentPageIndex === 0 && currentSetIndex === 0;
-
     const pagination = renderPagination(
         () => navigate(-1),
         () => navigate(1),
@@ -588,12 +548,10 @@ function renderApp() {
     );
     document.querySelector('#pagination-root').innerHTML = '';
     document.querySelector('#pagination-root').appendChild(pagination);
-
     const errorAlert = document.getElementById('pagination-error');
     const hasVisibleErrors = document.querySelector('.text-red-500:not(.hidden)');
     if (hasVisibleErrors && errorAlert) errorAlert.classList.remove('hidden');
 }
-
 function validateCurrent() {
     const set = getCurrentSet();
     if (!set || set.exclude || set.skip) return true;
@@ -607,7 +565,6 @@ function validateCurrent() {
     });
     return allValid;
 }
-
 function validateAll() {
     let firstInvalid = null;
     for (let p = 0; p < questionnaire.length; p++) {
@@ -627,7 +584,6 @@ function validateAll() {
     }
     return firstInvalid;
 }
-
 function navigate(delta) {
     if (questionnaire.length === 0) return;
     if (delta === 1) {
@@ -657,7 +613,6 @@ function navigate(delta) {
     renderApp();
     window.scrollTo(0, 0);
 }
-
 async function handleSubmit() {
     const firstInvalid = validateAll();
     if (firstInvalid) {
@@ -670,7 +625,6 @@ async function handleSubmit() {
         }, 100);
         return;
     }
-
     const structured = {};
     questionnaire.forEach(page => {
         const pageData = {};
@@ -690,7 +644,6 @@ async function handleSubmit() {
             structured[page.id] = pageData;
         }
     });
-
     const downloadData = {
         submitted_at: new Date().toISOString(),
         responses: structured,
@@ -699,7 +652,6 @@ async function handleSubmit() {
         _skippedSections: responses._skippedSections || {},
         _skippedFields: responses._skippedFields || {}
     };
-
     const jsonStr = JSON.stringify(downloadData, null, 2);
     const blob = new Blob([jsonStr], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
@@ -710,8 +662,6 @@ async function handleSubmit() {
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
-
     fetch('/api/reset', { method: 'POST' }).finally(() => window.location.reload());
 }
-
 init();
